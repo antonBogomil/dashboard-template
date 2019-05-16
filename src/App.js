@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import './styles/app.scss';
+const App = props => {
+    return (
+        <div className='app'>
+            <header className='header'>
+                <div className='header-block header-block-search'>
+                    <form className='form form-search' id='search'>
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+                    </form>
+                </div>
+                <div className='header-block header-block-user'>
+
+                </div>
+            </header>
+            <aside className='sidebar'>
+
+            </aside>
+        </div>
+    );
+};
+
 
 export default App;
