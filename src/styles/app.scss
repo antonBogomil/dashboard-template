@@ -25,6 +25,17 @@
   top: 0;
   bottom: 0;
   background-color: $color-secondary-dark;
+  .sidebar-header{
+    height: 70px;
+    .brand{
+      height: 100%;
+      line-height: 100%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 
 

@@ -3,16 +3,20 @@ This is color variables file. So please import this file to place where you addi
 DO NOT HARDCODE COLORS!!!
 PRIMARY,SECONDARY,TEXT(light,normal,dark)
 */
-/* Primary */
-$color-primary-light: #4bcf99;
-$color-primary-normal: #33be85;
-$color-primary-dark: #103E2B;
+/* Main */
+$color-main-light: #4bcf99;
+$color-main-normal: #33be85;
+$color-main-dark: #103E2B;
 /* Secondary*/
-$color-secondary-light:#f0f3f6  ;
+$color-secondary-light: #f0f3f6;
 $color-secondary-normal: #d7dde4;
 $color-secondary-dark: #3a4651;
-/*Addition*/
-
-
+/*Emphasis colors*/
+$color-primary: #007bff;
+$color-warning: #ffc107;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+$color-info: #17a2b8;
+$color-success: #28a745;
 /**/
 

@@ -1,0 +1,22 @@
+@import "colors";
+
+.menu {
+  font-size: 14px;
+  .menu-item {
+    a{
+      display: inline-block;
+      padding: 15px 15px 15px 20px;
+    }
+  }
+
+  .menu-item-has-nested {
+
+  }
+}
+.menu-nested {
+  display: none;
+}
+.menu-nested.show {
+  display: block;
+}
+

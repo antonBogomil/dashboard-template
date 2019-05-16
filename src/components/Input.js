@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const Input = ({value, name, placeholder='', type, isRequired = false, label, icon = ''}) => {
+import '../styles/input.scss'
+const Input = ({value, name, placeholder = '', onChange, type,variant='', isRequired = false, label, icon = ''}) => {
     return (
-        <div className='input-container'>
-            {icon}
+        <div className='form-group'>
+            {icon && <span className='form-group-icon'>{icon}</span>}
+            {label && <label>{label}</label>
+            }
             <input type={type}
                    name={name}
                    value={value}
+                   onChange={onChange}
+                   className={variant}
                    placeholder={placeholder}
                    required={isRequired}
             />
@@ -20,9 +24,9 @@ Input.propTypes = {
     value: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
-    isRequired: PropTypes.boolean,
-
-
+    onChange: PropTypes.func.isRequired,
+    isRequired: PropTypes.bool,
+    variant: PropTypes.oneOf(['outlined'])
 };
 
 export default Input;
