@@ -12,8 +12,19 @@ export default [
             {
                 title: 'Buttons',
                 url: '/buttons',
+                icon: ''
+            },
+            {
+                title: 'Typography',
+                url: '/typography',
                 icon: '',
             },
         ],
     },
+    {
+        title: 'Documentation',
+        url: '/docs',
+        icon: MENU_ICONS.HOME,
+    },
+
 ];

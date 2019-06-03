@@ -10,7 +10,7 @@
   height: 70px;
   left: 240px;
   top: 0;
-  background-color: $color-secondary-normal;
+  background-color: $color-secondary-light;
   align-items: center;
   justify-content: space-between;
   .header-block-search{
@@ -38,7 +38,10 @@
   }
 }
 
-
+.main{
+  padding-left: 240px;
+  padding-top: 70px;
+}
 form{
   
 }

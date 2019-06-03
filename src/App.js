@@ -5,6 +5,7 @@ import Menu from "./components/Menu";
 import menu from "./data/menu";
 import {ICONS} from "./constants";
 import getIcons from "./utils/getIcons";
+import PageElements from "./components/page/PageElements";
 const App = props => {
     return (
         <div className='app'>
@@ -28,6 +29,9 @@ const App = props => {
                     <Menu data={menu}/>
                 </nav>
             </aside>
+            <main className='main'>
+                <PageElements/>
+            </main>
         </div>
     );
 };
