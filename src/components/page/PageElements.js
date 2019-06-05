@@ -3,17 +3,7 @@ import {CollapseContent,Collapse, CollapseItem} from "../../library/collapse/Col
 
 const PageElements = () => {
     return (
-        <Collapse>
-            <CollapseItem>Item</CollapseItem>
-            <CollapseContent>
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                </ul>
-            </CollapseContent>
-        </Collapse>
+        <div>Content</div>
     );
 };
 

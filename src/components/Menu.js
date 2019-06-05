@@ -38,7 +38,7 @@ const MenuItem = ({item, depth, history}) => {
 
         <li className={`menu-item ${openClass}`}>
             {item.nested ?
-                <Collapse>
+                <Collapse defaultOpen={true}>
                     <CollapseItem>
                         <a>
                             {item.icon && <span className='icon'>{getIcons(item.icon)}</span>}
