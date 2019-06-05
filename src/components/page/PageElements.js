@@ -1,11 +1,18 @@
 import React from 'react';
-import Collapse, {CollapseContent, CollapseItem} from "../Collapse";
+import {CollapseContent,Collapse, CollapseItem} from "../../library/collapse/Collapse";
 
 const PageElements = () => {
     return (
         <Collapse>
             <CollapseItem>Item</CollapseItem>
-            <CollapseContent>Content</CollapseContent>
+            <CollapseContent>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+            </CollapseContent>
         </Collapse>
     );
 };

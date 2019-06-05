@@ -1,0 +1,22 @@
+.collapse-content{
+  transition: max-height .2s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+.collapse-item{
+  position: relative;
+}
+.expand-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+.expand-arrow.open svg{
+  transform: rotate(0);
+}
+.expand-arrow svg{
+  transition: .3s ease;
+  transform: rotate(-90deg);
+  font-size: 20px;
+}

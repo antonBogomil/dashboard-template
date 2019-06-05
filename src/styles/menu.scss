@@ -4,6 +4,7 @@
   font-size: 14px;
 
   .menu-item {
+    color: rgba(255, 255, 255, 0.50);
     .icon {
       margin-right: 5px;
     }
@@ -19,6 +20,7 @@
     text-decoration: none;
   }
   .menu-item {
+
     a:hover {
       background-color: $color-secondary-dark-extra;
       color: #fff;
@@ -35,16 +37,6 @@
   }
 }
 
-.menu .menu.open {
-  height: auto;
-
-}
-
-.menu .menu {
-  height: 0;
-  overflow: hidden;
-}
-
 .menu-level-0 a {
   padding-left: 20px;
 }
@@ -55,19 +47,4 @@
 
 .menu-level-2 a {
   padding-left: 60px;
-}
-.expand-arrow{
-  float: right;
-}
-.expand-arrow.open svg{
-  transform: rotate(0);
-}
-.expand-arrow svg{
-  transition: .3s ease;
-  transform: rotate(-90deg);
-  font-size: 20px;
-}
-@keyframes menuShow{
-
-
 }
