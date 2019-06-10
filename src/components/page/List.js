@@ -1,6 +1,5 @@
 import React from 'react';
 import WrappedPage from "../../hoc/WrappedPage";
-import {withRouter} from "react-router-dom";
 
 const List = (props) => {
     return (
@@ -10,4 +9,4 @@ const List = (props) => {
     );
 };
 
-export default withRouter(WrappedPage(List,'List Page'));
+export default WrappedPage(List,'List Page');

@@ -1,0 +1,26 @@
+@import "./colors.scss";
+.btn{
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all .3s ease;
+  text-decoration: none;
+  box-sizing: border-box;
+  &.btn-primary{
+    color: #fff;
+    background-color: $color-primary;
+    &:hover{
+      background-color: $color-secondary-light;
+      color: $color-primary;
+    }
+  }
+  &.btn-secondary{
+    color: $color-secondary-normal;
+    background-color: transparent;
+    border: 1px solid $color-secondary-normal;
+    &:hover{
+      background-color: $color-secondary-light;
+      color: $color-primary;
+    }
+  }
+}

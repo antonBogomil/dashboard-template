@@ -1,21 +1,21 @@
 import {MENU_ICONS} from "../constants";
 export default [
     {
-        title: 'Home',
+        title: 'PAGE_HOME',
         url: '/',
         icon: MENU_ICONS.HOME,
     },
     {
-        title: 'List manager',
+        title: 'PAGE_ITEMS_MANAGE',
         icon: MENU_ICONS.LIST,
         nested: [
             {
-                title: 'List',
+                title: 'PAGE_ITEMS_LIST',
                 url: '/list',
                 icon: ''
             },
             {
-                title: 'Edit',
+                title: 'PAGE_ITEMS_EDIT',
                 url: '/edit',
                 icon: '',
             },

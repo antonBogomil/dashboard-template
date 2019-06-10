@@ -9,6 +9,7 @@ import {
     withRouter
 } from "react-router-dom";
 import './styles/default.scss'
+import  './i18n'
 ReactDOM.render(
     <Router>
         <App />

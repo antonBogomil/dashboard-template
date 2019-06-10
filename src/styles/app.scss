@@ -3,7 +3,10 @@
 .app {
 
 }
-
+.logo{
+  max-width: 80px;
+  max-height: 100%;
+}
 .header {
   display: flex;
   position: fixed;
@@ -42,14 +45,15 @@
 .main{
   padding-left: 240px;
   .content{
-    //padding: 95px 20px 75px 20px;
-    padding-top: 70px;
+    padding: 95px 20px 75px 20px;
     min-height: 100vh;
     box-sizing: border-box;
-
     background-color: $color-secondary-ease;
+    color: $color-secondary-normal;
   }
-}
-form{
-  
+  .page-title{
+    border-bottom: 1px solid $color-secondary-light;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+  }
 }

@@ -4,6 +4,7 @@ import getIcons from "../utils/getIcons";
 import '../styles/menu.scss'
 import {ICONS} from "../constants/const";
 import {Collapse, CollapseContent, CollapseItem} from "../library/collapse/Collapse";
+import {useTranslation} from "react-i18next";
 /*
 * Only two level yet!!!
 * */
@@ -24,6 +25,7 @@ const MenuItem = ({item, depth, history}) => {
     const [open, setOpen] = useState(false);
     const openClass = open && item.nested ? 'open' : '';
     const li = useRef();
+    const [t] = useTranslation();
 
     function openSupMenu(e) {
         e.stopPropagation();
@@ -42,7 +44,7 @@ const MenuItem = ({item, depth, history}) => {
                     <CollapseItem>
                         <a>
                             {item.icon && <span className='icon'>{getIcons(item.icon)}</span>}
-                            {item.title}
+                            {t(item.title)}
                         </a>
                     </CollapseItem>
                     <CollapseContent>
@@ -51,7 +53,7 @@ const MenuItem = ({item, depth, history}) => {
                 </Collapse> :
                 <NavLink to={item.url} exact activeClassName='active'>
                     {item.icon && <span className='icon'>{getIcons(item.icon)}</span>}
-                    {item.title}
+                    {t(item.title)}
                 </NavLink>
             }
         </li>
