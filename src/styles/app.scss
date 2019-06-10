@@ -1,4 +1,5 @@
 @import "colors.scss";
+
 .app {
 
 }
@@ -40,7 +41,14 @@
 
 .main{
   padding-left: 240px;
-  padding-top: 70px;
+  .content{
+    //padding: 95px 20px 75px 20px;
+    padding-top: 70px;
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    background-color: $color-secondary-ease;
+  }
 }
 form{
   

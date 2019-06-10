@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './collapse.scss'
 import getIcons from "../../utils/getIcons";
@@ -6,8 +6,6 @@ import {ICONS} from "../../constants";
 
 export const Collapse = ({children,onChange,defaultOpen=false}) => {
     const [open, setOpen] = useState(defaultOpen);
-    console.log(open);
-
     return (
         <div className={`collapse-panel ${open ? 'open': ''}`}>
             {React.Children.map(children, child => {
@@ -38,9 +36,16 @@ export const CollapseItem = (props) => {
         </div>
     )
 };
-export const CollapseContent = ({children}) => {
+export const CollapseContent = ({children,open}) => {
+    const [height,setHeight] = useState(0);
+    const content = useRef(null);
+    useEffect(() => {
+        let height = content.current.scrollHeight;
+        setHeight(height)
+    },[]);
+
     return (
-        <div className='collapse-content'>
+        <div ref={content} className='collapse-content' style={{maxHeight: open ? height : 0}}>
             {children}
         </div>
     )

@@ -6,7 +6,7 @@ import {
     MdArrowDropUp,
     MdArrowDropDown,
     MdArrowBack,
-    MdKeyboardArrowDown
+    MdKeyboardArrowDown, MdList
 } from 'react-icons/md';
 
 export default {
@@ -15,4 +15,5 @@ export default {
     [ICONS.ARROW_UP]: MdArrowDropUp,
     [ICONS.ARROW_DOWN]: MdKeyboardArrowDown,
     [ICONS.SEARCH]: MdSearch,
+    [MENU_ICONS.LIST]: MdList
 }
