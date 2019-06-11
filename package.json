@@ -58,6 +58,7 @@
     "terser-webpack-plugin": "1.2.3",
     "ts-pnp": "1.1.2",
     "url-loader": "1.1.2",
+    "use-http": "^0.1.65",
     "webpack": "4.29.6",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
@@ -135,5 +136,6 @@
   },
   "devDependencies": {
     "prop-types": "latest"
-  }
+  },
+  "proxy": "http://5cfffd9fd691540014b0e38e.mockapi.io/api/v1/"
 }

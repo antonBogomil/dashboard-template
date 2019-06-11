@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import routes from './../data/routes'
-console.log(routes);
+import routes from '../data-config/routes'
 const Routing = () => {
     return (
         <>

@@ -14,4 +14,4 @@ const Buttons = () => {
     );
 };
 
-export default WrappedPage(Buttons,'Buttons');
+export default WrappedPage(Buttons,'Buttons',);
