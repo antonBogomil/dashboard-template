@@ -2,10 +2,9 @@ import React from 'react';
 import './styles/app.scss';
 import Input from "./components/Input";
 import Menu from "./components/Menu";
-import menu from "./data-config/menu";
+import menu from "./settings/menu";
 import {ICONS} from "./constants";
 import getIcons from "./utils/getIcons";
-import Buttons from "./components/page/Buttons";
 import Routing from "./components/Routing";
 import logo from './assets/logo_200x200.png';
 

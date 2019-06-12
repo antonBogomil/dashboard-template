@@ -2,7 +2,12 @@ export const MENU_ICONS = {
     HOME: "icon-home",
     ELEMENTS: "icon-elements",
     BUTTONS : "icon-button",
-    LIST: "icon-list"
+    LIST: "icon-list",
+    USERS: "icon-users",
+    PAGES: "icon-pages",
+    DOC: "icon-doc",
+    SETTINGS: 'icon-settings',
+    FORMS : 'icon-forms'
 };
 export const ICONS = {
     ARROW_UP: 'ARROW_UP',
@@ -18,7 +23,7 @@ export const LIST_COLUMN_TYPE = {
 };
 export const API = {
     BASE_URL: '/api/v1'
-}
+};
 // export const PATH_LIST = {
 //     HOME : '/',
 //     LIST: '/list',
