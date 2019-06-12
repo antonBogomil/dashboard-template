@@ -1,40 +1,51 @@
 import React from 'react';
 import Page from "./pages/UsersPage";
 import PropTypes from 'prop-types';
-import {LIST_COLUMN_TYPE} from "../constants";
+import {ICONS, LIST_COLUMN_TYPE} from "../constants";
+import '../styles/list.scss';
+import getIcons from "../utils/getIcons";
 
-const list = {
-    fields: [{name: 'id', title: '#', type: LIST_COLUMN_TYPE.NUMBER},
-        {name: 'img', title: 'Picture', type: LIST_COLUMN_TYPE.IMG},
-        {name: 'name', title: 'Name', type: LIST_COLUMN_TYPE.STRING},
-        {name: "role", title: 'Role', type: LIST_COLUMN_TYPE.STRING},
-        {name: "active", title: 'Active', type: LIST_COLUMN_TYPE.BOOLEAN},
-        {name: "dateCreated", title: 'Created', type: LIST_COLUMN_TYPE.DATE}]
-};
+// const list = {
+//     fields: [{name: 'id', title: '#', type: LIST_COLUMN_TYPE.NUMBER},
+//         {name: 'img', title: 'Picture', type: LIST_COLUMN_TYPE.IMG},
+//         {name: 'name', title: 'Name', type: LIST_COLUMN_TYPE.STRING},
+//         {name: "role", title: 'Role', type: LIST_COLUMN_TYPE.STRING},
+//         {name: "active", title: 'Active', type: LIST_COLUMN_TYPE.BOOLEAN},
+//         {name: "dateCreated", title: 'Created', type: LIST_COLUMN_TYPE.DATE}]
+// };
 
 
-const List = ({items, settings= list}) => {
-    const fieldTitles = settings.fields.map((field)=>{
-        return <td>{field.title}</td>
-    }) ;
+const List = ({items, settings}) => {
+    const fields = settings.fields || [];
+    const fieldTitles = [];
+    fields.forEach((field) => {
+        fieldTitles.push(<th key={field.title}>{cellViewResolver(field.type,field.title)}</th>)
+    });
+    const rows = items.map((item) => {
+        return (
+            <tr>
+                {
+                    fields.map((field)=>{
+                       return(
+                           <td>{cellViewResolver(field.type,item[field.name])}</td>
+                       )
+                    })
+                }
+            </tr>
+        )
+    });
     return (
         <div className='list'>
+
             <table>
+                <thead>
                 <tr className='list-head'>
                     {fieldTitles}
                 </tr>
-                <div className='items'>
-
-                    <ul className='items-list'>
-                        {items.map((item, i) => {
-                            return (
-                                <ListItem key={i}>
-                                    <div className='item-row'></div>
-                                </ListItem>
-                            )
-                        })}
-                    </ul>
-                </div>
+                </thead>
+                <tbody>
+                {rows}
+                </tbody>
             </table>
         </div>
     );
@@ -50,11 +61,16 @@ List.propTypes = {
     }).isRequired
 };
 
-const ListItem = ({children}) => {
-    return (
-        <li className='item'>
-            {children}
-        </li>
-    )
+
+
+const cellViewResolver = (type,value) =>{
+    switch (type) {
+        case LIST_COLUMN_TYPE.BOOLEAN: return <span className='cell-bool'>{ typeof value ==='boolean' ? (value ? getIcons(ICONS.CHECK): getIcons(ICONS.CHECK_FALSE)): value}</span>
+        case LIST_COLUMN_TYPE.DATE: return <span className='cell-date'>{value}</span>;
+        case LIST_COLUMN_TYPE.NUMBER: return <span className='cell-num'>{value}</span>;
+        case LIST_COLUMN_TYPE.IMG: return <span className='cell-img'><img src={value} alt='no-img'/></span>;
+        default: return <span className='cell-text'>{value}</span>
+    };
 };
+
 export default List;

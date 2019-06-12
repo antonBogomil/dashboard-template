@@ -1,0 +1,51 @@
+.list{
+  background-color: #fff;
+  table{
+    width: 100%;
+    tr{
+      padding: 0 15px;
+      box-shadow: 1px 1px 5px rgba(126, 142, 159, 0.1);
+    }
+    tr:nth-child(2n){
+      background-color: #fcfcfd;
+    }
+    th{
+      border-collapse: collapse;
+      background-color: #fcfcfd;
+      span{
+        color: #999;
+        font-size: 12px;
+      }
+    }
+    td{
+      max-width: 100px;
+      padding: 10px;
+      padding-left: 0;
+
+    }
+  }
+  tr span,th span{
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cell-num{
+    text-align: right;
+  }
+  .cell-text{
+    text-align: left;
+  }
+  .cell-date{
+    text-align: left;
+  }
+  .cell-img{
+    img{
+      max-width: 60px;
+      max-height: 60px;
+    }
+  }
+  .cell-bool{
+    text-align: center;
+  }
+}

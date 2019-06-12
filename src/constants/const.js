@@ -12,7 +12,9 @@ export const MENU_ICONS = {
 export const ICONS = {
     ARROW_UP: 'ARROW_UP',
     ARROW_DOWN: 'ARROW_DOWN',
-    SEARCH: 'SEARCH'
+    SEARCH: 'SEARCH',
+    CHECK_FALSE: "CHECK_FALSE",
+    CHECK: "CHECK",
 };
 export const LIST_COLUMN_TYPE = {
     STRING: 'STRING',
