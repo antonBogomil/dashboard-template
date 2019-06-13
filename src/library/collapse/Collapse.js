@@ -59,14 +59,14 @@ function handleClick(e, handler) {
 }
 
 function animateCollapse(targetElement) {
-    let parentContainer = targetElement.parentElement;
-    let content = parentContainer.querySelector('.collapse-content');
-    let isOpen = parentContainer.classList.contains('open');
+    var parentContainer = targetElement.parentElement;
+    var content = parentContainer.querySelector('.collapse-content');
+    var isOpen = parentContainer.classList.contains('open');
     if (isOpen) {
         parentContainer.classList.remove('open');
         content.style.maxHeight = null;
     } else {
-        const contentH = parentContainer.querySelector('.collapse-content').scrollHeight;
+        var contentH = parentContainer.querySelector('.collapse-content').scrollHeight;
         content.style.maxHeight = contentH + 'px';
         parentContainer.classList.add('open');
     }

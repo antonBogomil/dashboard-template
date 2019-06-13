@@ -1,6 +1,6 @@
 /*
-This is color variables file. So please import this file to place where you adding color.
-DO NOT HARDCODE COLORS!!!
+This is variables file. So please import this file to place where you adding styles vars like colors,shadows....
+DO NOT HARDCODE REUSED STYLES!!!
 PRIMARY,SECONDARY,TEXT(light,normal,dark)
 */
 /* Main */
@@ -15,10 +15,11 @@ $color-secondary-dark:#3a4651;
 $color-secondary-darker:#333e48;
 $color-secondary-dark-extra: #2d363f;
 /*Emphasis colors*/
-$color-primary: #3a4651;
+$color-primary: #85CE36;
 $color-warning: #ffc107;
 $color-danger: #dc3545;
 $color-info: #17a2b8;
 $color-success: #28a745;
 /**/
 
+$shadow: 1px 1px 5px rgba(126, 142, 159, 0.1);

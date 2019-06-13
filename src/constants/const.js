@@ -15,6 +15,7 @@ export const ICONS = {
     SEARCH: 'SEARCH',
     CHECK_FALSE: "CHECK_FALSE",
     CHECK: "CHECK",
+    LEFT: "LEFT",
 };
 export const LIST_COLUMN_TYPE = {
     STRING: 'STRING',

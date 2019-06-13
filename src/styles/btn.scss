@@ -1,5 +1,20 @@
-@import "./colors.scss";
+@import "vars";
 .btn{
+  border: 1px solid transparent;
+  &.btn-disabled{
+    cursor: auto;
+    background-color: $color-secondary-light;
+    opacity: .8;
+  }
+  svg{
+    vertical-align: middle;
+    font-size: 1.2em ;
+  }
+  & a{
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+  }
   padding: 8px 16px;
   cursor: pointer;
   display: inline-block;
@@ -15,12 +30,19 @@
     }
   }
   &.btn-secondary{
-    color: $color-secondary-normal;
+    color: $color-primary;
     background-color: transparent;
-    border: 1px solid $color-secondary-normal;
+    border: 1px solid $color-secondary-light;
     &:hover{
       background-color: $color-secondary-light;
-      color: $color-primary;
+      color: $color-secondary-normal;
+    }
+  }
+  &.btn-success{
+    background-color: $color-success;
+    color: $color-secondary-dark;
+    &:hover{
+
     }
   }
 }

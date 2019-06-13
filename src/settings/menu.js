@@ -11,12 +11,12 @@ export default [
         nested: [
             {
                 title: 'MENU_USERS_LIST',
-                url: '/list',
+                url: '/users',
                 icon: ''
             },
             {
-                title: 'MENU_USERS_EDIT',
-                url: '/edit',
+                title: 'MENU_USERS_ADD',
+                url: '/users/add',
                 icon: '',
             },
         ],

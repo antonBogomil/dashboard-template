@@ -17,4 +17,4 @@ const menuPage = {
 };
 
 
-export {pagesPage, mediaPage, menuPage, siteSettingsPage,homePage}
+export {pagesPage, mediaPage, menuPage, siteSettingsPage}

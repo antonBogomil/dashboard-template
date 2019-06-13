@@ -292,9 +292,13 @@ module.exports = function(webpackEnv) {
         PnpWebpackPlugin.moduleLoader(module),
       ],
     },
+
     module: {
       strictExportPresence: true,
       rules: [
+        {
+          exclude: /node_modules\/(?!(color-convert|ansi-styles|strip-ansi|ansi-regex|debug|react-dev-utils|chalk)\/).*/
+        },
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
 

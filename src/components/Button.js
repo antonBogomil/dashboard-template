@@ -1,17 +1,27 @@
 import React from 'react';
 import '../styles/btn.scss';
 import PropTypes from "prop-types";
-const Button = ({children, onClick, variant = 'primary',href='/'}) => {
+import {NavLink} from "react-router-dom";
+
+const Button = ({children, onClick, variant = 'primary', href, to}) => {
     const className = 'btn btn-' + variant;
     if (onClick) {
         return <a className={className} onClick={onClick}>{children}</a>
-
-    } else {
+    } else if (href) {
         return <a className={className} href={href}>{children}</a>
+    } else if (to) {
+        return (
+            <div className={className}>
+                <NavLink to={to}>{children}</NavLink>
+            </div>
+        )
+    } else {
+        return <a className={className}>{children}</a>
+
     }
 };
 Button.propTypes = {
-    variant: PropTypes.oneOf(['primary','secondary','warning','danger','info','success']),
+    variant: PropTypes.oneOf(['primary', 'secondary', 'warning', 'danger', 'info', 'success', 'disabled']),
     onClick: PropTypes.func,
     href: PropTypes.string
 };

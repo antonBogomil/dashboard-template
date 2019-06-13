@@ -1,17 +1,16 @@
 const en = {
     translation: {
         BTN_BACK: "Back",
-
-
-
-        MESSAGE_404: "Page 404 Not Found",
-
-
+        BTN_BACK_TO: "Back to Dashboard",
+        BTN_PREV: "Prev",
+        BTN_NEXT: "Next",
+        MESSAGE_404: "Sorry, page not found",
         MENU_HOME: "Home",
         MENU_ITEMS_MANAGE: "Items manager",
         MENU_USERS: "Users",
         MENU_USERS_LIST: "Users list",
         MENU_USERS_EDIT: "Edit user",
+        MENU_USERS_ADD: "Add user",
         MENU_PAGES: "Pages",
         MENU_SETTINGS: "Site settings",
         MENU_DOC: "Documentation",
@@ -23,19 +22,16 @@ const en = {
         PAGE_TITLE_PAGES: "List of pages",
         PAGE_TITLE_FORM: "Forms",
         PAGE_TITLE_DOC: "Read documentation",
-
     }
 };
 const ru = {
     translation: {
         BTN_BACK: "Назад",
-        MESSAGE_404: "Страница не найдена 404!",
+        MESSAGE_404: "Страница не найдена",
         PAGE_HOME: "Главная",
         PAGE_ITEMS_MANAGE: "Управление обьектами",
         PAGE_ITEMS_EDIT: "Редактор обьектов",
         PAGE_ITEMS_LIST: "Список обьектов",
-
-
     }
 };
 export default {

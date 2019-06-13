@@ -1,53 +1,82 @@
-import React from 'react';
-import Page from "./pages/UsersPage";
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {ICONS, LIST_COLUMN_TYPE} from "../constants";
 import '../styles/list.scss';
 import getIcons from "../utils/getIcons";
-
-// const list = {
-//     fields: [{name: 'id', title: '#', type: LIST_COLUMN_TYPE.NUMBER},
-//         {name: 'img', title: 'Picture', type: LIST_COLUMN_TYPE.IMG},
-//         {name: 'name', title: 'Name', type: LIST_COLUMN_TYPE.STRING},
-//         {name: "role", title: 'Role', type: LIST_COLUMN_TYPE.STRING},
-//         {name: "active", title: 'Active', type: LIST_COLUMN_TYPE.BOOLEAN},
-//         {name: "dateCreated", title: 'Created', type: LIST_COLUMN_TYPE.DATE}]
-// };
-
+import dateFormat from '../utils/dateFormat';
+import {Pagination} from "./Pagination";
 
 const List = ({items, settings}) => {
     const fields = settings.fields || [];
-    const fieldTitles = [];
-    fields.forEach((field) => {
-        fieldTitles.push(<th key={field.title}>{cellViewResolver(field.type,field.title)}</th>)
+    const {rowsPerPage, total} = settings;
+
+
+    const pageAmountDefault = Math.ceil((items.length || total) / rowsPerPage);
+    const activePageDefault = 0;
+    const activeItemsDefault = items.slice(rowsPerPage * activePageDefault, rowsPerPage);
+
+    const [list, setList] = useState({
+        activePage: activePageDefault,
+        pages: pageAmountDefault,
+        activeItems: activeItemsDefault
     });
-    const rows = items.map((item) => {
+    const {activePage, pages, activeItems} = list;
+
+
+    const changePage = (pageNumber) => {
+        /*if undefined then next page*/
+        let newActivePage = pageNumber;
+        if (pageNumber === -1) {
+            newActivePage = activePage - 1;
+        }
+        if (pageNumber === undefined) {
+            newActivePage = activePage + 1;
+        }
+        const from = newActivePage * rowsPerPage,
+            to = from + rowsPerPage;
+
+        const newItems = items.slice(from, to);
+        setList((prevState) => {
+            return {
+                ...prevState,
+                activePage: newActivePage,
+                activeItems: newItems
+            }
+        })
+    };
+
+
+    const fieldTitles = fields.map((field, i) => {
+        return <th key={i}>{cellViewResolver(field.type, field.title, true)}</th>
+    });
+    const rows = activeItems.map((item, i) => {
         return (
-            <tr>
-                {
-                    fields.map((field)=>{
-                       return(
-                           <td>{cellViewResolver(field.type,item[field.name])}</td>
-                       )
-                    })
-                }
-            </tr>
+            <tr key={i}>{fields.map((field, i) => {
+                return (<td key={i}>{cellViewResolver(field.type, item[field.name])}</td>)
+            })}</tr>
         )
     });
     return (
-        <div className='list'>
+        <>
+            <div className='list'>
+                <table>
+                    <thead>
+                    <tr className='list-head'>{fieldTitles}</tr>
+                    </thead>
+                    <tbody>{rows}</tbody>
+                </table>
+                {rowsPerPage && pages>1 &&
+                <div className='list-pagination'>
+                    <Pagination
+                        pagesNum={pages}
+                        active={activePage}
+                        onClick={changePage}
+                    />
+                </div>
+                }
+            </div>
+        </>
 
-            <table>
-                <thead>
-                <tr className='list-head'>
-                    {fieldTitles}
-                </tr>
-                </thead>
-                <tbody>
-                {rows}
-                </tbody>
-            </table>
-        </div>
     );
 };
 List.propTypes = {
@@ -58,19 +87,25 @@ List.propTypes = {
             title: PropTypes.string.isRequired,
             type: PropTypes.oneOf(Object.values(LIST_COLUMN_TYPE))
         })).isRequired,
-    }).isRequired
+        rowsPerPage: PropTypes.number,
+    }).isRequired,
 };
 
 
-
-const cellViewResolver = (type,value) =>{
+const cellViewResolver = (type, value, isTitle) => {
     switch (type) {
-        case LIST_COLUMN_TYPE.BOOLEAN: return <span className='cell-bool'>{ typeof value ==='boolean' ? (value ? getIcons(ICONS.CHECK): getIcons(ICONS.CHECK_FALSE)): value}</span>
-        case LIST_COLUMN_TYPE.DATE: return <span className='cell-date'>{value}</span>;
-        case LIST_COLUMN_TYPE.NUMBER: return <span className='cell-num'>{value}</span>;
-        case LIST_COLUMN_TYPE.IMG: return <span className='cell-img'><img src={value} alt='no-img'/></span>;
-        default: return <span className='cell-text'>{value}</span>
-    };
+        case LIST_COLUMN_TYPE.BOOLEAN:
+            return <span
+                className='cell-bool'>{isTitle ? value : (value ? getIcons(ICONS.CHECK) : getIcons(ICONS.CHECK_FALSE))}</span>;
+        case LIST_COLUMN_TYPE.DATE:
+            return <span className='cell-date'>{isTitle ? value : dateFormat(value)}</span>;
+        case LIST_COLUMN_TYPE.NUMBER:
+            return <span className='cell-num'>{value}</span>;
+        case LIST_COLUMN_TYPE.IMG:
+            return <span className='cell-img'>{isTitle ? value : <img src={value} alt='no-img'/>}</span>;
+        default:
+            return <span className='cell-text'>{value}</span>
+    }
 };
 
 export default List;

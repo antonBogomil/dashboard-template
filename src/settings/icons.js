@@ -15,7 +15,8 @@ import {
     MdSettings,
     MdDvr,
     MdCheckBox,
-    MdIndeterminateCheckBox
+    MdIndeterminateCheckBox,
+    MdKeyboardArrowLeft
 } from 'react-icons/md';
 
 export default {
@@ -24,7 +25,7 @@ export default {
     [ICONS.SEARCH]: MdSearch,
     [ICONS.CHECK]: MdCheckBox,
     [ICONS.CHECK_FALSE]: MdIndeterminateCheckBox,
-
+    [ICONS.LEFT]: MdKeyboardArrowLeft,
     [MENU_ICONS.HOME]: MdHome,
     [MENU_ICONS.LIST]: MdList,
     [MENU_ICONS.USERS]: MdPeople,
@@ -32,5 +33,4 @@ export default {
     [MENU_ICONS.SETTINGS]: MdSettings,
     [MENU_ICONS.DOC]: MdLibraryBooks,
     [MENU_ICONS.FORMS]: MdDvr,
-
 }

@@ -35,7 +35,7 @@ const App = props => {
                 </nav>
             </aside>
             <main className='main'>
-                <div className='content'>
+                <div className='container'>
                     <Routing/>
                 </div>
             </main>
