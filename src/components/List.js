@@ -24,11 +24,12 @@ const List = ({items, settings}) => {
 
 
     const changePage = (pageNumber) => {
-        /*if undefined then next page*/
         let newActivePage = pageNumber;
         if (pageNumber === -1) {
             newActivePage = activePage - 1;
         }
+        /*if undefined then next page*/
+
         if (pageNumber === undefined) {
             newActivePage = activePage + 1;
         }
@@ -65,7 +66,7 @@ const List = ({items, settings}) => {
                     </thead>
                     <tbody>{rows}</tbody>
                 </table>
-                {rowsPerPage && pages>1 &&
+                {rowsPerPage && pages > 1 &&
                 <div className='list-pagination'>
                     <Pagination
                         pagesNum={pages}

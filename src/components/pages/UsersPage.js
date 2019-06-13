@@ -6,6 +6,7 @@ import List from "../List";
 
 /*Test ONLY!!!!*/
 import users from '../../backendData/users';
+import {useFetch} from "../../api/api";
 /***************/
 
 
@@ -24,25 +25,21 @@ const list = {
         {name: "active", title: 'Active', type: LIST_COLUMN_TYPE.BOOLEAN},
         {name: "dateCreated", title: 'Created', type: LIST_COLUMN_TYPE.DATE}
     ],
-    rowsPerPage: 1,
+    rowsPerPage: 5,
     total: 0,
     select: false,
     filter: false,
+    editable: true,
     sortBy: 'id',
     sortDir: 'asc',
 };
 
 
-const UsersPage = () => {
-    // const [data, loading, error, request] = useFetch({
-    //     url: config.dataUrl,
-    //     onMount: true
-    // });
-    // if (error) return 'Error!'
-    // if (loading) return 'Loading...'
+const UsersPage = ({data}) => {
+
     return (
         <>
-            <List items={users} settings={list}/>
+            <List items={data} settings={list}/>
         </>
     );
 };

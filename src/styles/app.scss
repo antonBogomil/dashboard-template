@@ -14,13 +14,17 @@
   height: 70px;
   left: 240px;
   top: 0;
+  padding: 0 20px ;
   background-color: $color-secondary-light;
   align-items: center;
   justify-content: space-between;
   box-shadow: $shadow;
   z-index: 2;
   .header-block-search{
-    padding-left: 35px;
+    //padding-left: 35px;
+  }
+  .header-block-user{
+    
   }
 }
 
@@ -51,7 +55,7 @@
     padding: 95px 20px 75px 20px;
     height: 100vh;
     overflow-y: scroll;
-    display: grid;
+    //display: grid;
     grid-template-rows: minmax(100px, max-content) auto;
     box-sizing: border-box;
     background-color: $color-secondary-ease;
