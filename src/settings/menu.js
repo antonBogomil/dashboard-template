@@ -1,4 +1,5 @@
 import {MENU_ICONS} from "../constants";
+
 export default [
     {
         title: 'MENU_HOME',
@@ -8,15 +9,16 @@ export default [
     {
         title: 'MENU_USERS',
         icon: MENU_ICONS.USERS,
+        url: '/users',
         nested: [
             {
                 title: 'MENU_USERS_LIST',
-                url: '/users',
+                url: '/list',
                 icon: ''
             },
             {
                 title: 'MENU_USERS_ADD',
-                url: '/users/add',
+                url: '/add',
                 icon: '',
             },
         ],
@@ -35,6 +37,22 @@ export default [
         title: 'MENU_SETTINGS',
         icon: MENU_ICONS.SETTINGS,
         url: '/settings',
+    },
+    {
+        title: 'MENU_UI_DEMO',
+        icon: MENU_ICONS.ELEMENTS,
+        url: '/ui',
+        nested: [{
+            title: 'MENU_UI_DEMO_BTN',
+            url: '/buttons',
+            icon: ''
+        },
+            {
+                title: 'MENU_FORMS',
+                url: '/forms',
+                icon: ''
+            }
+        ]
     },
     {
         title: 'MENU_DOC',

@@ -7,12 +7,15 @@ export const Pagination = ({pagesNum, active, onClick}) => {
     const [t] = useTranslation();
     return (
         <nav className='pagination'>
-            <Button variant={active > 0 ? "primary" : "disabled"}
-                    onClick={active > 0 ? ()=>{onClick(-1)} : null}>{t('BTN_PREV')}</Button>
+            <span className='p-item'>
+                <Button variant={active > 0 ? "primary" : "disabled"}
+                          onClick={active > 0 ? ()=>{onClick(-1)} : null}>{t('BTN_PREV')}</Button>
+            </span>
             {createButtons(pagesNum, active, onClick)}
-            <Button variant={active < pagesNum - 1 ? "primary" : "disabled"}
-                    onClick={active < pagesNum - 1 ? ()=>{onClick()}: null}>{t('BTN_NEXT')}</Button>
-
+            <span className='p-item'>
+                <Button variant={active < pagesNum - 1 ? "primary" : "disabled"}
+                        onClick={active < pagesNum - 1 ? ()=>{onClick()}: null}>{t('BTN_NEXT')}</Button>
+            </span>
         </nav>
     )
 };
@@ -28,9 +31,11 @@ const createButtons = function (n, active, onClick) {
     const array = [];
     for (let i = 0; i < n; i++) {
         array.push(
-            <Button key={i} variant={i === active ? "primary" : "secondary"} onClick={() => {
-                onClick(i)
-            }}>{(i + 1)}</Button>
+            <span key={i} className='p-item'>
+                 <Button key={i} variant={i === active ? "primary" : "secondary"} onClick={() => {
+                     onClick(i)
+                 }}>{(i + 1)}</Button>
+            </span>
         )
     }
     return array;

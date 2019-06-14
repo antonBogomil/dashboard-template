@@ -5,6 +5,7 @@ import '../styles/list.scss';
 import getIcons from "../utils/getIcons";
 import dateFormat from '../utils/dateFormat';
 import {Pagination} from "./Pagination";
+import CardBlock from "./CardBlock";
 
 const List = ({items, settings}) => {
     const fields = settings.fields || [];
@@ -60,12 +61,16 @@ const List = ({items, settings}) => {
     return (
         <>
             <div className='list'>
-                <table>
-                    <thead>
-                    <tr className='list-head'>{fieldTitles}</tr>
-                    </thead>
-                    <tbody>{rows}</tbody>
-                </table>
+                <CardBlock>
+                    <CardBlock.Body>
+                        <table>
+                            <thead>
+                            <tr className='list-head'>{fieldTitles}</tr>
+                            </thead>
+                            <tbody>{rows}</tbody>
+                        </table>
+                    </CardBlock.Body>
+                </CardBlock>
                 {rowsPerPage && pages > 1 &&
                 <div className='list-pagination'>
                     <Pagination

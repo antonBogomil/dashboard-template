@@ -1,6 +1,23 @@
 @import "vars";
 .btn{
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all .3s ease;
+  text-decoration: none;
+  box-sizing: border-box;
   border: 1px solid transparent;
+  &.btn-small{
+    padding: 4px 8px;
+  }
+  &.btn-large{
+    padding: 12px 24px;
+  }
+  &.btn-block{
+    padding: 12px 24px;
+    text-align: center;
+    width: 100%;
+  }
   &.btn-disabled{
     cursor: auto;
     background-color: $color-secondary-light;
@@ -15,23 +32,17 @@
     color: inherit;
     font: inherit;
   }
-  padding: 8px 16px;
-  cursor: pointer;
-  display: inline-block;
-  transition: all .3s ease;
-  text-decoration: none;
-  box-sizing: border-box;
   &.btn-primary{
     color: #fff;
     background-color: $color-primary;
     &:hover{
-      background-color: $color-secondary-light;
-      color: $color-primary;
+      background-color: $color-primary-dark;
+      color: #fff;
     }
   }
   &.btn-secondary{
-    color: $color-primary;
-    background-color: transparent;
+    color: $color-primary-dark;
+    background-color: white;
     border: 1px solid $color-secondary-light;
     &:hover{
       background-color: $color-secondary-light;
@@ -40,9 +51,30 @@
   }
   &.btn-success{
     background-color: $color-success;
-    color: $color-secondary-dark;
+    color: #fff;
     &:hover{
-
+      background-color: $color-success-dark;
+    }
+  }
+  &.btn-info{
+    background-color: $color-info;
+    color: $color-secondary-dark-extra;
+    &:hover{
+      background-color: $color-info-dark;
+    }
+  }
+  &.btn-warning{
+    background-color: $color-warning;
+    color: $color-secondary-dark-extra;
+    &:hover{
+      background-color: $color-warning-dark;
+    }
+  }
+  &.btn-danger{
+    background-color: $color-danger;
+    color: #fff;
+    &:hover{
+      background-color: $color-danger-dark;
     }
   }
 }

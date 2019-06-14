@@ -13,11 +13,18 @@ import {
 } from "react-router-dom";
 import './styles/default.scss'
 import  './i18n'
+import UFormsPage from "./components/pages/UFormsPage";
+
+
+
 ReactDOM.render(
-    <Router>
-        <App />
-    </Router>
+    <UFormsPage/>
     , document.getElementById('root'));
+// ReactDOM.render(
+//     <Router>
+//         <App />
+//     </Router>
+//     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

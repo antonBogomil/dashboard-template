@@ -1,13 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Page from "../WrappedPage";
+// import PropTypes from 'prop-types';
+import WrappedPage from "../WrappedPage";
 import {LIST_COLUMN_TYPE} from "../../constants";
 import List from "../List";
-
-/*Test ONLY!!!!*/
-import users from '../../backendData/users';
-import {useFetch} from "../../api/api";
-/***************/
 
 
 
@@ -44,4 +39,4 @@ const UsersPage = ({data}) => {
     );
 };
 
-export default Page(UsersPage, settings);
+export default WrappedPage(UsersPage, settings);

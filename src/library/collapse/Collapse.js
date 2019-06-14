@@ -22,7 +22,7 @@ Collapse.propTypes = {
 
 
 export const CollapseItem = (props) => {
-    const li = useRef();
+    // const li = useRef();
     const {setOpen, open,onChange} = props;
     return (
         <div className='collapse-item'

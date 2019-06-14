@@ -3,8 +3,8 @@ import '../styles/btn.scss';
 import PropTypes from "prop-types";
 import {NavLink} from "react-router-dom";
 
-const Button = ({children, onClick, variant = 'primary', href, to}) => {
-    const className = 'btn btn-' + variant;
+const Button = ({children, onClick, variant = 'primary',size='normal', href, to}) => {
+    const className = 'btn btn-' + variant + ' btn-'+size;
     if (onClick) {
         return <a className={className} onClick={onClick}>{children}</a>
     } else if (href) {
@@ -22,6 +22,7 @@ const Button = ({children, onClick, variant = 'primary', href, to}) => {
 };
 Button.propTypes = {
     variant: PropTypes.oneOf(['primary', 'secondary', 'warning', 'danger', 'info', 'success', 'disabled']),
+    size:  PropTypes.oneOf(['small', 'normal', 'block', 'large']),
     onClick: PropTypes.func,
     href: PropTypes.string
 };

@@ -3,10 +3,6 @@ This is variables file. So please import this file to place where you adding sty
 DO NOT HARDCODE REUSED STYLES!!!
 PRIMARY,SECONDARY,TEXT(light,normal,dark)
 */
-/* Main */
-$color-main-light: #4bcf99;
-$color-main-normal: #33be85;
-$color-main-dark: #103E2B;
 /* Secondary*/
 $color-secondary-ease: #f0f3f6;
 $color-secondary-light: #d7dde4;
@@ -15,11 +11,21 @@ $color-secondary-dark:#3a4651;
 $color-secondary-darker:#333e48;
 $color-secondary-dark-extra: #2d363f;
 /*Emphasis colors*/
-$color-primary: #85CE36;
+$color-primary: #4bcf99;
+$color-primary-dark: #33c087;
+
 $color-warning: #ffc107;
-$color-danger: #dc3545;
-$color-info: #17a2b8;
+$color-warning-dark: #eeb207;
+
+$color-danger: #ff3b51;
+$color-danger-dark: #de3848;
+
+$color-info: #76D4F5;
+$color-info-dark: #52c9f2;
+
 $color-success: #28a745;
+$color-success-dark: #248641;
+
 /**/
 
 $shadow: 1px 1px 5px rgba(126, 142, 159, 0.1);

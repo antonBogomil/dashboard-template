@@ -14,6 +14,7 @@ import {
     MdLibraryBooks,
     MdSettings,
     MdDvr,
+    MdDesktopMac,
     MdCheckBox,
     MdIndeterminateCheckBox,
     MdKeyboardArrowLeft
@@ -33,4 +34,5 @@ export default {
     [MENU_ICONS.SETTINGS]: MdSettings,
     [MENU_ICONS.DOC]: MdLibraryBooks,
     [MENU_ICONS.FORMS]: MdDvr,
+    [MENU_ICONS.ELEMENTS]: MdDesktopMac,
 }
