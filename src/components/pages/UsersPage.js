@@ -9,7 +9,6 @@ import List from "../List";
 
 const settings = {
     title: 'PAGE_TITLE_USERS',
-    dataUrl: '/users',
 };
 const list = {
     fields: [
@@ -20,21 +19,22 @@ const list = {
         {name: "active", title: 'Active', type: LIST_COLUMN_TYPE.BOOLEAN},
         {name: "dateCreated", title: 'Created', type: LIST_COLUMN_TYPE.DATE}
     ],
-    rowsPerPage: 5,
-    total: 0,
     select: false,
     filter: false,
     editable: true,
     sortBy: 'id',
     sortDir: 'asc',
+    dataUrl: '/users',
+    lazy: true,
+    rowsPerPage: 5,
+    activePage: 0
 };
 
 
 const UsersPage = ({data}) => {
-
     return (
         <>
-            <List items={data} settings={list}/>
+            <List settings={list} listItems={data || []}/>
         </>
     );
 };

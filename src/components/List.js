@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {ICONS, LIST_COLUMN_TYPE} from "../constants";
 import '../styles/list.scss';
@@ -6,22 +6,41 @@ import getIcons from "../utils/getIcons";
 import dateFormat from '../utils/dateFormat';
 import {Pagination} from "./Pagination";
 import CardBlock from "./CardBlock";
+import {getData, useFetch} from "../api/api";
+import Preloader from "./Preloader";
 
-const List = ({items, settings}) => {
-    const fields = settings.fields || [];
-    const {rowsPerPage, total} = settings;
-
-
-    const pageAmountDefault = Math.ceil((items.length || total) / rowsPerPage);
-    const activePageDefault = 0;
-    const activeItemsDefault = items.slice(rowsPerPage * activePageDefault, rowsPerPage);
-
-    const [list, setList] = useState({
-        activePage: activePageDefault,
-        pages: pageAmountDefault,
-        activeItems: activeItemsDefault
+const List = ({settings, listItems = []}) => {
+    const fields = settings.fields;
+    const {rowsPerPage, dataUrl, activePage} = settings;
+    const [params, setParams] = useState({
+        page: activePage,
+        total: Math.ceil(listItems.length / rowsPerPage)
     });
-    const {activePage, pages, activeItems} = list;
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [items, setItems] = useState(listItems);
+
+
+    useEffect(() => {
+        if (dataUrl) {
+            setLoading(true);
+            getData(dataUrl, params, (data) => {
+                setItems(data);
+                setLoading(false)
+            }, (e) => setError(true))
+        } else {
+            const slicedItems = sliceItems(listItems);
+            setItems(slicedItems)
+        }
+    }, [params.page]);
+
+
+    const sliceItems = (allItems) => {
+        const {page} = params;
+        const from = page * rowsPerPage,
+            to = from + rowsPerPage;
+        return allItems.slice(from, to);
+    };
 
 
     const changePage = (pageNumber) => {
@@ -30,63 +49,53 @@ const List = ({items, settings}) => {
             newActivePage = activePage - 1;
         }
         /*if undefined then next page*/
-
         if (pageNumber === undefined) {
             newActivePage = activePage + 1;
         }
-        const from = newActivePage * rowsPerPage,
-            to = from + rowsPerPage;
-
-        const newItems = items.slice(from, to);
-        setList((prevState) => {
+        setParams((old) => {
             return {
-                ...prevState,
-                activePage: newActivePage,
-                activeItems: newItems
+                ...old,
+                page: newActivePage,
             }
         })
     };
 
-
-    const fieldTitles = fields.map((field, i) => {
-        return <th key={i}>{cellViewResolver(field.type, field.title, true)}</th>
-    });
-    const rows = activeItems.map((item, i) => {
-        return (
-            <tr key={i}>{fields.map((field, i) => {
-                return (<td key={i}>{cellViewResolver(field.type, item[field.name])}</td>)
-            })}</tr>
-        )
-    });
+    const {page, total} = params;
+    // console.log(items);
+    console.log(loading);
     return (
         <>
-            <div className='list'>
-                <CardBlock>
-                    <CardBlock.Body>
-                        <table>
-                            <thead>
-                            <tr className='list-head'>{fieldTitles}</tr>
-                            </thead>
-                            <tbody>{rows}</tbody>
-                        </table>
-                    </CardBlock.Body>
-                </CardBlock>
-                {rowsPerPage && pages > 1 &&
-                <div className='list-pagination'>
-                    <Pagination
-                        pagesNum={pages}
-                        active={activePage}
-                        onClick={changePage}
-                    />
-                </div>
-                }
-            </div>
+            {
+                loading ? <Preloader  size='small'/> : (
+                    error ? <h2>Error</h2> : <div className='list'>
+                        <CardBlock>
+                            <CardBlock.Body>
+                                <table>
+                                    <thead>
+                                    <tr className='list-head'>{Titles(fields)}</tr>
+                                    </thead>
+                                    <tbody>{Rows(items, fields)}</tbody>
+                                </table>
+                            </CardBlock.Body>
+                        </CardBlock>
+                        {total > 1 &&
+                        <div className='list-pagination'>
+                            <Pagination
+                                pagesNum={total}
+                                active={activePage}
+                                onClick={changePage}
+                            />
+                        </div>
+                        }
+                    </div>
+                )
+            }
         </>
 
     );
 };
 List.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.array,
     settings: PropTypes.shape({
         fields: PropTypes.arrayOf(PropTypes.shape({
             name: PropTypes.string.isRequired,
@@ -96,6 +105,18 @@ List.propTypes = {
         rowsPerPage: PropTypes.number,
     }).isRequired,
 };
+
+
+const Titles = (fields) => fields.map((field, i) => {
+    return <th key={i}>{cellViewResolver(field.type, field.title, true)}</th>
+});
+const Rows = (items, fields) => items.map((item, i) => {
+    return (
+        <tr key={i}>{fields.map((field, i) => {
+            return (<td key={i}>{cellViewResolver(field.type, item[field.name])}</td>)
+        })}</tr>
+    )
+});
 
 
 const cellViewResolver = (type, value, isTitle) => {

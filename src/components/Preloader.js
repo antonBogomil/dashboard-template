@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import '../styles/preloader.scss';
 
 const Preloader = ({size = 'normal'}) => {
@@ -16,6 +16,8 @@ const Preloader = ({size = 'normal'}) => {
     );
 };
 
-// Preloader.propTypes = {};
+Preloader.propTypes = {
+    size: PropTypes.oneOf(['small','normal','large'])
+};
 
 export default Preloader;

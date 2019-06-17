@@ -17,14 +17,14 @@ import UFormsPage from "./components/pages/UFormsPage";
 
 
 
-ReactDOM.render(
-    <UFormsPage/>
-    , document.getElementById('root'));
 // ReactDOM.render(
-//     <Router>
-//         <App />
-//     </Router>
+//     <UFormsPage/>
 //     , document.getElementById('root'));
+ReactDOM.render(
+    <Router>
+        <App />
+    </Router>
+    , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
