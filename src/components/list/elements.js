@@ -5,14 +5,15 @@ import dateFormat from "../../utils/dateFormat";
 import ImageLoad from "../ImageLoad";
 
 const ListTitles = (props) => {
+    const {onSelect,checked} = props;
     const [fields, setFields] = useState(props.fields);
     useEffect(() => {
 
     }, [fields]);
-
     return (
         <thead className='list-head'>
         <tr className='list-row'>
+            <td className='list-cell list-cell_select' onClick={()=>{onSelect('ALL')}}> {checked ? getIcons(ICONS.CHECK): getIcons(ICONS.CHECK_OUTLINE_FALSE)} </td>
             {
                 fields.map((field, i) => {
                     return <th className='list-cell list-cell_head'
@@ -24,16 +25,20 @@ const ListTitles = (props) => {
     )
 };
 
-const ListBody = ({items, fields, rows}) => {
-
+const ListBody = ({items, fields, rows,onSelect,selected=[]}) => {
     return (
         <tbody className='list-body'>
         {
             items.map((item, i) => {
                 return (
-                    <tr className='list-row' key={i}>{fields.map((field, i) => {
-                        return (<td className='list-cell' key={i}>{ListCell(field.type, item[field.name])}</td>)
-                    })}</tr>
+                    <tr className='list-row' key={i}>
+                        <td className='list-cell list-cell_select' onClick={()=>{onSelect(item.id)}}> {selected.indexOf(item.id) !==-1 ? getIcons(ICONS.CHECK): getIcons(ICONS.CHECK_OUTLINE_FALSE)} </td>
+                        {
+                            fields.map((field, i) => {
+                                return (<td className='list-cell' key={i}>{ListCell(field.type, item[field.name])}</td>)
+                            })
+                        }
+                    </tr>
                 )
             })
         }

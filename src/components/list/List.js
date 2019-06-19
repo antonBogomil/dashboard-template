@@ -11,7 +11,6 @@ import listReducer, {LIST_ACTIONS} from "./reducer";
 import {ListTitles, ListBody} from "./elements";
 
 
-
 const List = ({settings}) => {
     const {fields} = settings;
     const initialState = {
@@ -22,11 +21,11 @@ const List = ({settings}) => {
         loading: true,
         error: false,
         initialized: false,
+        selected: []
     };
     const [state, dispatch] = useReducer(listReducer, initialState);
-    const {page, initialized, error, items, rows, total} = state;
+    const {page, initialized, error, items, rows, total, selected} = state;
     useEffect(() => {
-
         try {
             getData(settings.dataUrl, {}, settings.paging ? setPageWithPaging : setPage,
                 (e) => {
@@ -40,6 +39,34 @@ const List = ({settings}) => {
 
     function changePage(pageNumber) {
         dispatch({type: LIST_ACTIONS.PAGE_CHANGE, page: pageNumber})
+    }
+
+    function handleSelect(id) {
+        const newSelected = selected.slice(0);
+        if (selected.indexOf(id) !== -1) {
+            newSelected.splice(selected.indexOf(id), 1);
+        } else {
+            newSelected.push(id);
+        }
+        dispatch({
+            type: LIST_ACTIONS.SELECT,
+            selected: newSelected
+        });
+    }
+
+    function handleSelectAll() {
+        let all = selected.slice(0);
+        if (selected.length === items.length) {
+            all = [];
+        } else {
+            all = items.map((item) => {
+                return item.id
+            });
+        }
+        dispatch({
+            type: LIST_ACTIONS.SELECT,
+            selected: all
+        });
     }
 
     function setPageWithPaging(data) {
@@ -59,6 +86,7 @@ const List = ({settings}) => {
             },
         });
     }
+
     return (
         <>
             {
@@ -68,8 +96,16 @@ const List = ({settings}) => {
                             <CardBlock>
                                 <CardBlock.Body>
                                     <table className='list'>
-                                        <ListTitles fields={fields}/>
-                                        <ListBody fields={fields} items={sliceItems(page, rows, items)} rows={rows}/>
+                                        <ListTitles fields={fields}
+                                                    onSelect={handleSelectAll}
+                                                    checked={selected.length === items.length}
+                                        />
+                                        <ListBody fields={fields}
+                                                  items={sliceItems(page, rows, items)}
+                                                  rows={rows}
+                                                  selected={selected}
+                                                  onSelect={handleSelect}
+                                        />
                                     </table>
                                 </CardBlock.Body>
                             </CardBlock>}

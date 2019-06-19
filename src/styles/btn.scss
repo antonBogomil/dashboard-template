@@ -7,6 +7,10 @@
   text-decoration: none;
   box-sizing: border-box;
   border: 1px solid transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
   &.btn-small{
     padding: 4px 8px;
   }

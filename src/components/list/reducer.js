@@ -4,6 +4,7 @@ export const LIST_ACTIONS = {
     PAGE_LOADING: "LOADING",
     PAGE_LOADED: "LOADED",
     DATA_ERROR: "ERROR",
+    SELECT : "SELECT"
 };
 
 
@@ -31,6 +32,11 @@ export default function listReducer(state, action) {
             return {
                 ...state,
                 page: action.page,
+            };
+        case LIST_ACTIONS.SELECT:
+            return {
+                ...state,
+                selected: action.selected,
             };
         default:
             return state

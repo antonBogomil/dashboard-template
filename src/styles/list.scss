@@ -6,7 +6,6 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
-
   tr {
     padding: 0 15px;
     box-shadow: $shadow;
@@ -74,6 +73,7 @@
   .cell-bool {
     text-align: center;
   }
+
 }
 
 .pagination {

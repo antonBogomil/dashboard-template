@@ -1,5 +1,5 @@
 import Button from "./Button";
-import React from "react";
+import React, {useEffect} from "react";
 import {useTranslation} from "react-i18next";
 
 const PAGINATION_STEP = 2;
@@ -12,15 +12,11 @@ export const Pagination = ({pagesNum, activePage, onClick}) => {
                 {t('BTN_PREV')}
             </ItemButton>
             <>
-                <ItemButton n={0} onClick={onClick} isActive={activePage === 0}>
-                    1
-                </ItemButton>
-                {activePage+1 > PAGINATION_STEP * 2 &&
+                <ItemButton n={0} onClick={onClick} isActive={activePage === 0}>1</ItemButton>
+                {activePage + 1 > PAGINATION_STEP * 2 &&
                 <ItemButton onClick={onClick} n={activePage - PAGINATION_STEP} isActive={false}>...</ItemButton>}
             </>
-
             {pagesNum > PAGINATION_STEP && middleButtons(activePage, pagesNum, onClick)}
-
             <>
                 {activePage < pagesNum - PAGINATION_STEP * 2 &&
                 <ItemButton onClick={onClick} n={activePage + PAGINATION_STEP * 2} isActive={false}>...</ItemButton>}
@@ -74,7 +70,6 @@ function getRange(n, max, step) {
         from = max - step * 2;
         to = max - 1;
     }
-    console.log(from, to);
     for (let i = from; i <= to; i++) {
         if (i > 0) {
             range.push(i);
