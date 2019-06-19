@@ -1,44 +1,45 @@
 @import "vars";
+
 .list {
   padding-bottom: 100px;
   height: 100%;
-  display: block;
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  table {
-    width: 100%;
-    overflow-y: scroll;
-    tr {
-      padding: 0 15px;
-      box-shadow: $shadow;
-    }
-    td{
-      height: 90px;
-    }
 
-    tr:nth-child(2n) {
-      background-color: #fcfcfd;
-    }
+  tr {
+    padding: 0 15px;
+    box-shadow: $shadow;
+  }
 
-    th {
-      border-collapse: collapse;
-      padding: 10px;
-      background-color: #fcfcfd;
-      span {
-        color: #999;
-        font-size: 12px;
-        display: inline-block;
-      }
-    }
+  td {
+    height: 100px;
 
-    td,th {
-      max-width: 100px;
-      padding: 10px;
-      padding-left: 0;
+  }
 
+  tr:nth-child(2n) {
+    background-color: #fcfcfd;
+  }
+
+  th {
+    border-collapse: collapse;
+    padding: 10px;
+    background-color: #fcfcfd;
+
+    span {
+      color: #999;
+      font-size: 12px;
+      display: inline-block;
     }
   }
+
+  td, th {
+    max-width: 100px;
+    padding: 5px;
+    padding-left: 0;
+
+  }
+
 
   tr span, th span {
     display: inline-block;
@@ -61,28 +62,39 @@
 
   .cell-img {
     text-align: center;
+    min-width: 60px;
 
     img {
-      max-width: 60px;
-      max-height: 60px;
+      width: 60px;
+      vertical-align: middle;
+      height: auto;
     }
   }
 
   .cell-bool {
     text-align: center;
   }
-  .list-pagination{
-    width: 100%;
-    margin-top: 15px;
-    text-align: right;
-    position: absolute;
-    bottom: 0;
-  }
-  .pagination{
+}
+
+.pagination {
+  transition: .3s ease;
+  width: 100%;
+  margin-top: 15px;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  .p-item {
+    margin: 5px 0 0;
+    box-sizing: border-box;
     transition: .3s ease;
-    .p-item{
-      margin: 5px 0;
-      display: inline-block;
+    display: inline-block;
+    text-align: center;
+    width: 52px;
+    a{
+      width: 100%;
     }
+  }
+  .p-item:last-child,.p-item:first-child{
+    width: auto;
   }
 }

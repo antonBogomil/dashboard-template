@@ -34,13 +34,12 @@
 
 .sidebar {
   width: 240px;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   background-color: $color-secondary-dark;
   z-index: 2;
-
   .sidebar-header {
     height: 70px;
 
@@ -60,8 +59,7 @@
 
   .container {
     padding: 95px 20px 75px 20px;
-    height: 100vh;
-    overflow-y: scroll;
+    min-height: 100vh;
     //display: grid;
     grid-template-rows: minmax(100px, max-content) auto;
     box-sizing: border-box;

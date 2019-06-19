@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import WrappedPage from "../WrappedPage";
 import {LIST_COLUMN_TYPE} from "../../constants";
-import List from "../List";
+import List from "../list";
 
 
 
@@ -21,20 +21,21 @@ const list = {
     ],
     select: false,
     filter: false,
-    editable: true,
-    sortBy: 'id',
-    sortDir: 'asc',
+    edit: true,
+    paging: false,
+    // sortBy: 'id',
+    // sortDir: 'asc',
     dataUrl: '/users',
-    lazy: true,
-    rowsPerPage: 5,
-    activePage: 0
+    rows: 5, /* 2-10 will be the best*/
+    activePage: 0,
+
 };
 
 
-const UsersPage = ({data}) => {
+const UsersPage = (props) => {
     return (
         <>
-            <List settings={list} listItems={data || []}/>
+            <List settings={list}/>
         </>
     );
 };

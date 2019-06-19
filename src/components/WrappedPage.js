@@ -7,7 +7,6 @@ import Preloader from "./Preloader";
 const WrappedPage = (Page, settings) => {
     const {title, titleDesc, dataUrl} = settings;
     let PageWithHistory = (props) => {
-        const [data, loading, error] = useFetch(dataUrl, {});
         const [t] = useTranslation();
         return (
             <>
@@ -27,10 +26,7 @@ const WrappedPage = (Page, settings) => {
                     {titleDesc && <p className='title-description'>{t(titleDesc)}</p>}
                 </div>
                 <div className='page-content'>
-                    {loading ? <Preloader size='large'/> :
-                        (error ? <h1 className='text-danger'>Fetch failed</h1> : <Page {...props} data={data}/>)
-                    }
-
+                    <Page {...props}/>
                 </div>
             </>
         )
