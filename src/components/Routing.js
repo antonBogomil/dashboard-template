@@ -6,9 +6,6 @@ const Routing = () => {
     return (
         <Switch>
             {routes.map((route, i) => {
-                    // if (route.path) {
-                    //     return <Route key={i} path={route.path} exact={route.exact} component={route.action}/>
-                    // }
                     return  <Route key={i} path={route.path} exact={route.exact} component={route.action}/>
                 }
             )}

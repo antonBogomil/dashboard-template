@@ -28,7 +28,7 @@ const list = {
     dataUrl: '/users',
     rows: 5, /* 2-10 will be the best*/
     activePage: 0,
-
+    editPage: '/users'
 };
 
 

@@ -3,9 +3,11 @@ import {ICONS, LIST_COLUMN_TYPE} from "../../constants";
 import getIcons from "../../utils/getIcons";
 import dateFormat from "../../utils/dateFormat";
 import ImageLoad from "../ImageLoad";
+import Checkbox from "../form/Checkbox";
+import Button from "../Button";
 
 const ListTitles = (props) => {
-    const {onSelect,checked} = props;
+    const {onSelect, checked} = props;
     const [fields, setFields] = useState(props.fields);
     useEffect(() => {
 
@@ -13,31 +15,53 @@ const ListTitles = (props) => {
     return (
         <thead className='list-head'>
         <tr className='list-row'>
-            <td className='list-cell list-cell_select' onClick={()=>{onSelect('ALL')}}> {checked ? getIcons(ICONS.CHECK): getIcons(ICONS.CHECK_OUTLINE_FALSE)} </td>
+            <td className='list-cell list-cell_select'>
+                <Checkbox checked={checked}
+                          onChange={() => {
+                              onSelect('ALL')
+                          }}
+                />
+            </td>
             {
                 fields.map((field, i) => {
                     return <th className='list-cell list-cell_head'
                                key={i}>{ListCell(field.type, field.title, true)}</th>
                 })
             }
+            <td></td>
         </tr>
         </thead>
     )
 };
 
-const ListBody = ({items, fields, rows,onSelect,selected=[]}) => {
+const ListBody = ({items, fields, editPage, rows, onSelect, selected = []}) => {
     return (
         <tbody className='list-body'>
         {
             items.map((item, i) => {
                 return (
                     <tr className='list-row' key={i}>
-                        <td className='list-cell list-cell_select' onClick={()=>{onSelect(item.id)}}> {selected.indexOf(item.id) !==-1 ? getIcons(ICONS.CHECK): getIcons(ICONS.CHECK_OUTLINE_FALSE)} </td>
+                        <td className='list-cell list-cell_select'>
+                            <Checkbox checked={selected.indexOf(item.id) !== -1}
+                                      onChange={() => {
+                                          onSelect(item.id)
+                                      }}
+                            />
+                        </td>
                         {
                             fields.map((field, i) => {
                                 return (<td className='list-cell' key={i}>{ListCell(field.type, item[field.name])}</td>)
                             })
                         }
+                        {editPage && <td>
+                            <Button size='small'
+                                    shape={'round'}
+                                    variant='secondary'
+                                    to={`${editPage}/${item.id}`}
+                            >
+                                {getIcons(ICONS.EDIT)}
+                            </Button>
+                        </td>}
                     </tr>
                 )
             })

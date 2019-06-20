@@ -9,10 +9,11 @@ import Preloader from "../Preloader";
 import {getTotalPages, sliceItems} from "./utils";
 import listReducer, {LIST_ACTIONS} from "./reducer";
 import {ListTitles, ListBody} from "./elements";
-
+import {useTranslation} from "react-i18next";
 
 const List = ({settings}) => {
-    const {fields} = settings;
+    const {fields, editPage} = settings;
+    const [t] = useTranslation();
     const initialState = {
         page: 0,
         rows: settings.rows,
@@ -95,7 +96,7 @@ const List = ({settings}) => {
                         {error ? <p className='text-danger'>404 ERROR</p> :
                             <CardBlock>
                                 <CardBlock.Body>
-                                    <table className='list'>
+                                    <table className='list-table'>
                                         <ListTitles fields={fields}
                                                     onSelect={handleSelectAll}
                                                     checked={selected.length === items.length}
@@ -104,19 +105,29 @@ const List = ({settings}) => {
                                                   items={sliceItems(page, rows, items)}
                                                   rows={rows}
                                                   selected={selected}
+                                                  editPage={editPage}
                                                   onSelect={handleSelect}
                                         />
                                     </table>
+                                    <div className='list-bottom clearfix'>
+                                        {
+                                            selected.length > 0 &&
+                                            <div className='list-details'>
+                                                {t('INFO_SELECTED') + selected.length}
+                                            </div>
+                                        }
+                                        {total > 1 &&
+                                        <div className='list-pagination'>
+                                            <Pagination
+                                                pages={total}
+                                                activePage={page}
+                                                onClick={changePage}
+                                            />
+                                        </div>}
+                                    </div>
                                 </CardBlock.Body>
                             </CardBlock>}
-                        {total > 1 &&
-                        <div className='pagination'>
-                            <Pagination
-                                pagesNum={total}
-                                activePage={page}
-                                onClick={changePage}
-                            />
-                        </div>}
+
                     </> : <Preloader/>
             }
         </>

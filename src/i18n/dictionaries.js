@@ -24,13 +24,14 @@ const en = {
         PAGE_TITLE_PAGES: "List of pages",
         PAGE_TITLE_FORM: "Forms",
         PAGE_TITLE_DOC: "Read documentation",
+        INFO_SELECTED: "Selected : "
     }
 };
 const ru = {
     translation: {
         BTN_BACK: "Назад",
         MESSAGE_404: "Страница не найдена",
-        PAGE_HOME: "Главная",
+        MENU_HOME: "Главная",
         PAGE_ITEMS_MANAGE: "Управление обьектами",
         PAGE_ITEMS_EDIT: "Редактор обьектов",
         PAGE_ITEMS_LIST: "Список обьектов",

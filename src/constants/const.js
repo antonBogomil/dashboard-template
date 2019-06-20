@@ -11,12 +11,17 @@ export const MENU_ICONS = {
 };
 export const ICONS = {
     ARROW_UP: 'ARROW_UP',
+    EDIT: 'EDIT',
     ARROW_DOWN: 'ARROW_DOWN',
     SEARCH: 'SEARCH',
     CHECK_FALSE: "CHECK_FALSE",
     CHECK: "CHECK",
     CHECK_OUTLINE_FALSE: "CHECK_OUT_FALSE",
     LEFT: "LEFT",
+    LAST_PAGE: "LAST_PAGE",
+    FIRST_PAGE: "FIRST_PAGE",
+    LEFT_PAGE: "L_PAGE",
+    RIGHT_PAGE: "R_PAGE",
 };
 export const LIST_COLUMN_TYPE = {
     STRING: 'STRING',

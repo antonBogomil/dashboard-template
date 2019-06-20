@@ -1,0 +1,103 @@
+@import "vars";
+
+.form-field {
+  .input-container {
+    display: flex;
+    align-items: center;
+    .form-group-icon {
+      color: inherit;
+      padding: 6px;
+      vertical-align: middle;
+
+      svg {
+        vertical-align: middle;
+      }
+    }
+    input ,textarea{
+      outline: none;
+      display: block;
+      width: 100%;
+      color: $color-secondary-normal;
+      font-size: 14px;
+      padding: 8px 0;
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+      background-clip: padding-box;
+      box-shadow: none;
+      resize: none;
+      &::-webkit-input-placeholder {
+        color: $color-secondary-dark;
+        font-style: italic;
+        opacity: .8;
+      }
+      &:disabled{
+        background-color: $color-secondary-light;
+        border: none!important;
+        opacity: .6;
+        &::-webkit-input-placeholder{
+          color: $color-secondary-dark;
+        }
+      }
+      &.outlined {
+        border-bottom: 1px solid $color-secondary-light;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        &:focus {
+          border-bottom-color: $color-primary;
+        }
+      }
+    }
+  }
+  label {
+    color: inherit;
+    font-weight: 700;
+    display: block;
+    margin-top: 16px;
+  }
+
+
+  &.valid-error{
+    color: $color-danger;
+    .input-container{
+      input{
+        border-bottom-color: $color-danger!important;
+      }
+    }
+    .field-error{
+      font-size: 10px;
+    }
+  }
+
+}
+
+
+.checkbox {
+  display: inline-block;
+  cursor: pointer;
+
+  .checkbox-icon {
+    background-color: $color-secondary-light;
+    //font-size: 21px;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: .1s ease;
+    color: #fff;
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked + .checkbox-icon {
+    background-color: $color-primary;
+
+  }
+
+  &.cb-primary {
+  }
+}

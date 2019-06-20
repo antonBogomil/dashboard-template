@@ -1,11 +1,11 @@
 import React from 'react';
 
-const UserPage = ({id}) => {
+const UserAddPage = () => {
     return (
         <div>
-            User ID
+            
         </div>
     );
 };
 
-export default UserPage;
+export default UserAddPage;

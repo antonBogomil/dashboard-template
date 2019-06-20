@@ -1,4 +1,4 @@
 export default [
-    {name: 'English',code: 'EN'},
-    {name: 'Russian',code: 'RU'}
+    {id:1,title: 'English',code: 'en'},
+    {id:2,title: 'Russian',code: 'ru'}
 ]

@@ -2,6 +2,7 @@
 .btn{
   padding: 8px 16px;
   cursor: pointer;
+  height: 36px;
   display: inline-block;
   transition: all .3s ease;
   text-decoration: none;
@@ -13,14 +14,24 @@
   -ms-user-select: none;
   &.btn-small{
     padding: 4px 8px;
+    height: auto;
   }
   &.btn-large{
     padding: 12px 24px;
+    height: auto;
   }
   &.btn-block{
     padding: 12px 24px;
     text-align: center;
+    height: auto;
     width: 100%;
+  }
+  &.btn-round{
+    border-radius: 5px;
+    padding: 5px;
+    svg{
+      vertical-align: middle;
+    }
   }
   &.btn-disabled{
     cursor: auto;

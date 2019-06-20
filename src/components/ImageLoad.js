@@ -7,7 +7,7 @@ const ImageLoad = ({src, alt}) => {
 
     },[loaded]);
     return (
-        <div>
+        <>
             {
                 <img src={src} alt={alt || src} style={loaded ? {} : {display: 'none'}}
                               onLoad={() => {
@@ -17,7 +17,7 @@ const ImageLoad = ({src, alt}) => {
             {
                 !loaded && <Preloader size={"small"}/>
             }
-        </div>
+        </>
     );
 };
 

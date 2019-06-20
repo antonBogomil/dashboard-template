@@ -2,9 +2,10 @@ import React from "react";
 import HomePage from "../components/pages/HomePage";
 import UsersPage from "../components/pages/UsersPage";
 import Error404Page from "../components/pages/Error404_Page";
-import UserPage from "../components/pages/UserPage";
 import UFormsPage from "../components/pages/UFormsPage";
 import UButtonsPage from "../components/pages/UButtonsPage";
+import UserEditPage from "../components/pages/UserEditPage";
+import UserAddPage from "../components/pages/UserAddPage";
 
 export default [
     {
@@ -18,14 +19,14 @@ export default [
         action: () => <UsersPage/>
     },
     {
-        path: '/users/:id',
-        exact: true,
-        action: () => <UserPage/>
-    },
-    {
         path: '/users/add',
         exact: true,
-        action: () => <UserPage/>
+        action: () => <UserAddPage/>
+    },
+    {
+        path: '/users/:id',
+        exact: true,
+        action: () => <UserEditPage/>
     },
     {
         path: '/ui/buttons',

@@ -1,3 +1,28 @@
-.select{
+.select {
+  max-width: 300px;
+  min-width: 200px;
+  position: relative;
 
+  .select-title {
+    height: 30px;
+    font-size: 20px;
+    border: 2px solid #3a4651;
+    cursor: pointer;
+  }
+
+  .select-options {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: #fff;
+    color: #2d363f;
+
+    .select-option{
+      cursor: pointer;
+      padding: 6px;
+    }
+    &.closed {
+      display: none;
+    }
+  }
 }

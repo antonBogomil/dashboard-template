@@ -4,36 +4,55 @@ import WrappedPage from "../WrappedPage";
 import CardBlock from "../CardBlock";
 import {FORM_FIELD_TYPES} from "../../constants/const";
 import Form from "../form/Form";
+import Checkbox from "../form/Checkbox";
 
 const UFormsPage = props => {
 
     const settings = {
         fields: [
             {
-                id: 1, name: 'email', type: FORM_FIELD_TYPES.EMAIL, placeholder: 'Your email',
+                id: 1, name: 'email', type: FORM_FIELD_TYPES.EMAIL, placeholder: 'placeholder email',label: 'Input Email'
             },
             {
-                id: 2, name: 'username', type: FORM_FIELD_TYPES.TEXT, placeholder: 'Your full name',
+                id: 2, name: 'username', type: FORM_FIELD_TYPES.TEXT, placeholder: 'placeholder text',label: 'Input text',error: 'Required field',isRequired: true
             },
             {
-                id: 3, name: 'password', type: FORM_FIELD_TYPES.PASSWORD, placeholder: 'Your password',
+                id: 3, name: 'password', type: FORM_FIELD_TYPES.PASSWORD, placeholder: 'placeholder password',label: 'Input password',disabled: true
+            },
+            {
+                id: 4, name: 'dis-text', type: FORM_FIELD_TYPES.TEXT, placeholder: 'placeholder disable text',label: 'Input disable text'
+            },
+            {
+                id: 5, name: 'textarea', type: FORM_FIELD_TYPES.TEXTAREA, placeholder: 'placeholder disable textarea',label: 'Input textarea'
             }
         ]
     };
+    const [checked,setChecked] = useState(false);
+    const checkBoxChange = (e)=>{
+        setChecked((checked)=>!checked);
+    };
+
 
     const [state,setState] = useState({
         username: '',
         email: '',
         password: '',
+
     });
 
     return (
         <div className='flex-row'>
-            <div className='flex-col'>
+            <div className='flex-col flex-col-2'>
                 <CardBlock>
-                    <CardBlock.Title>Simple</CardBlock.Title>
+                    <CardBlock.Title>Inputs</CardBlock.Title>
                     <CardBlock.Body>
                         <Form settings={settings} values={state}/>
+                    </CardBlock.Body>
+                </CardBlock>
+                <CardBlock>
+                    <CardBlock.Title>Radio Types</CardBlock.Title>
+                    <CardBlock.Body>
+                        <Checkbox checked={checked} onChange={checkBoxChange}/>
                     </CardBlock.Body>
                 </CardBlock>
             </div>

@@ -1,31 +1,32 @@
 import Button from "./Button";
 import React, {useEffect} from "react";
 import {useTranslation} from "react-i18next";
+import getIcons from "../utils/getIcons";
+import {ICONS} from "../constants/const";
 
 const PAGINATION_STEP = 2;
 
-export const Pagination = ({pagesNum, activePage, onClick}) => {
+export const Pagination = ({pages, activePage, onClick}) => {
     const [t] = useTranslation();
     return (
         <nav className='pagination'>
+            <ItemButton n={0} onClick={onClick} disabled={activePage === 0}>{getIcons(ICONS.FIRST_PAGE)}</ItemButton>
             <ItemButton disabled={activePage === 0} n={activePage - 1} onClick={onClick} isActive={false}>
-                {t('BTN_PREV')}
+                {getIcons(ICONS.LEFT_PAGE)}
             </ItemButton>
-            <>
-                <ItemButton n={0} onClick={onClick} isActive={activePage === 0}>1</ItemButton>
-                {activePage + 1 > PAGINATION_STEP * 2 &&
-                <ItemButton onClick={onClick} n={activePage - PAGINATION_STEP} isActive={false}>...</ItemButton>}
-            </>
-            {pagesNum > PAGINATION_STEP && middleButtons(activePage, pagesNum, onClick)}
-            <>
-                {activePage < pagesNum - PAGINATION_STEP * 2 &&
-                <ItemButton onClick={onClick} n={activePage + PAGINATION_STEP * 2} isActive={false}>...</ItemButton>}
-                <ItemButton n={pagesNum - 1} onClick={onClick} isActive={activePage === pagesNum - 1}>
-                    {pagesNum}
-                </ItemButton>
-            </>
-            <ItemButton onClick={onClick} disabled={activePage === pagesNum - 1} n={activePage + 1} isActive={false}>
-                {t('BTN_NEXT')}
+
+
+            <ItemButton disabled={false} isActive={true} onClick={()=>{}}>
+                {activePage+1} / {pages}
+            </ItemButton>
+
+
+
+            <ItemButton onClick={onClick} disabled={activePage === pages - 1} n={activePage + 1} isActive={false}>
+                {getIcons(ICONS.RIGHT_PAGE)}
+            </ItemButton>
+            <ItemButton n={pages - 1} onClick={onClick} isActive={false} disabled={activePage === pages - 1}>
+                {getIcons(ICONS.LAST_PAGE)}
             </ItemButton>
         </nav>
     )
@@ -39,13 +40,13 @@ const ItemButton = ({n, onClick, isActive, disabled, children}) => {
     return (
         <div className={'p-item'}>
             <Button variant={disabled ? "disabled" : isActive ? "primary" : "secondary"}
-                    onClick={() => disabled ? null : onClick(n)}>{children}</Button>
+                    onClick={() => disabled ? null : onClick && onClick(n)}>{children}</Button>
         </div>
     )
 };
 
-const middleButtons = function (activePage, pagesAmount, onClick) {
-    const range = getRange(activePage, pagesAmount - 1, PAGINATION_STEP);
+const middleButtons = function (activePage, pages, onClick) {
+    const range = getRange(activePage, pages, PAGINATION_STEP);
     return (
         <>
             {range.map((pageNumber, i) => {
@@ -59,21 +60,20 @@ const middleButtons = function (activePage, pagesAmount, onClick) {
     )
 };
 
-function getRange(n, max, step) {
+function getRange(x, max, step) {
     const range = [];
-    let from = n - step, to = n + step;
-    if (from < 1) {
-        to = step * 2;
-        from = 0;
+
+
+    if (x===0){
+
     }
-    if (to >= max) {
-        from = max - step * 2;
-        to = max - 1;
-    }
-    for (let i = from; i <= to; i++) {
-        if (i > 0) {
-            range.push(i);
+
+    for (let i = 0; i < max; i++) {
+        if (i>step){
+            break;
         }
+        range.push(i);
+
     }
     return range;
 }

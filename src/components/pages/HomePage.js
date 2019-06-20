@@ -1,8 +1,11 @@
 import React from 'react';
 import Page from "../WrappedPage";
+import Select from "../form/Select";
 const settings = {
     title: "PAGE_TITLE_HOME",
 };
+
+
 
 const HomePage = ({settings,children}) => {
     return (
