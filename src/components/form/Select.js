@@ -26,56 +26,28 @@ const data = [
     }
 ];
 
-const Select = ({title, defaultValue , options = data ,onChange}) => {
-    const initialState = {
-        open: false,
-        selected: undefined,
-    };
-    const [state, setState] = useState(initialState);
-    const {open, selected} = state;
-
-
-    function handleOpen() {
-        setState((old) => {
-            return {
-                ...old,
-                open: !old.open
-            }
-        })
-    }
-
-    function handleSelect(id) {
-        setState((old) => {
-            return {
-                ...old,
-                selected: id
-            }
-        });
+const Select = ({title, selectedId, options = data, onChange}) => {
+    function handleSelect(e) {
+        const id = +e.target.value;
         onChange(id);
-        handleOpen();
     }
 
-    const value = selected !== undefined ? options.find((o) => {
-        return o.id === selected
-    }) : defaultValue;
     return (
         <div className="select">
             <span>{title}</span>
-            <div className='select-title' onClick={handleOpen}>{value ? value.title : ''}</div>
-            <div className={`select-options ${open ? 'open' : 'closed'}`}>
+            <select className={`select-options`} defaultValue={+selectedId} onChange={handleSelect}>
                 {options.map((item) => {
                     return (
-                        <div key={item.id}
-                             className={'select-option'}
-                             onClick={() => {
-                                 handleSelect(item.id)
-                             }}
+                        <option key={item.id}
+                                value={item.id}
+                                // selected={+selectedId===+item.id}
+                                className={'select-option'}
                         >
                             {item.title}
-                        </div>
+                        </option>
                     )
                 })}
-            </div>
+            </select>
         </div>
     );
 };
@@ -84,11 +56,9 @@ Select.propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         title: PropTypes.string.isRequired,
-        defaultValue: PropTypes.shape({
-            id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-            title: PropTypes.string
-        })
     })).isRequired,
+    selectedId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+
 };
 
 export default Select;

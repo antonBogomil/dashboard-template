@@ -6,24 +6,18 @@ import App from './App';
 
 import {
     BrowserRouter as Router,
-    Route,
-    Link,
-    Redirect,
-    withRouter
 } from "react-router-dom";
 import './styles/default.scss'
-import  './i18n'
-import UFormsPage from "./components/pages/UFormsPage";
+import './i18n'
+import {Provider} from "react-redux";
+import store from './store';
 
-
-
-// ReactDOM.render(
-//     <UFormsPage/>
-//     , document.getElementById('root'));
 ReactDOM.render(
-    <Router>
-        <App />
-    </Router>
+    <Provider store={store}>
+        <Router>
+            <App/>
+        </Router>
+    </Provider>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

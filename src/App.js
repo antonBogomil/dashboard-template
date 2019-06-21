@@ -9,11 +9,26 @@ import Routing from "./components/Routing";
 import logo from './assets/logo_200x200.png';
 import Select from "./components/form/Select";
 import langs from "./settings/langs";
-import {changeLang} from "./i18n";
+import {useSelector} from "react-redux";
+import {useDispatch} from 'react-redux'
+import {changeLang} from "./store/actions";
 import {useTranslation} from "react-i18next";
+import transformLang from "./utils/transformLang";
 
 const App = props => {
-    const {t,i18n} = useTranslation();
+    const locale = useSelector((state) => state.locale);
+    const dispatch = useDispatch();
+    const {t, i18n} = useTranslation();
+
+    function changeLanguage(id) {
+        dispatch(changeLang(id));
+        const langCode = langs.find((l) => {
+            return l.id == id
+        }).code;
+        console.log(changeLang(id));
+        i18n.changeLanguage(langCode);
+    }
+
     return (
         <>
             <header className='header'>
@@ -25,7 +40,7 @@ const App = props => {
                 </div>
                 <div className='header-block header-block-user'>
                     <div className='lang-panel'>
-                        <Select options={langs} onChange={(id)=>{changeLang(id,i18n)}} defaultValue={{id:1}}/>
+                        <Select options={langs} onChange={changeLanguage} selectedId={locale.id}/>
                     </div>
                 </div>
             </header>
