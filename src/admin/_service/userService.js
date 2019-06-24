@@ -1,0 +1,32 @@
+import {_httpRequest} from "../../utils/_httpRequest";
+
+export const userService = {
+    login,
+    logout,
+    getList,
+    create
+};
+
+
+function login(username, password) {
+    /**HERE HTTP REQUEST SETTINGS*/
+    /*HERE TEST ONLY*/
+    localStorage.setItem('user', JSON.stringify({username, password}));
+    return {
+        username, password
+    }
+}
+
+function logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('user');
+}
+
+function getList(url, params) {
+    console.log(_httpRequest);
+    return _httpRequest.get(url, params)
+}
+
+function create(data) {
+    return _httpRequest.post('/users/add', data);
+}

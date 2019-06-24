@@ -1,0 +1,24 @@
+@import "vars";
+.select {
+  max-width: 300px;
+  min-width: 70px;
+  height: 36px;
+  display: inline-block;
+  position: relative;
+  color: #2d363f;
+  border: none;
+  background-color: transparent;
+  option.select-option {
+    padding: 6px;
+    font-size: 14px;
+    background-color: $color-secondary-ease ;
+  }
+  &:focus{
+    outline: none;
+  }
+
+
+  &.closed {
+    display: none;
+  }
+}

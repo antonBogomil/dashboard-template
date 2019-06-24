@@ -1,4 +1,5 @@
 export const ACTION_TYPES = {
     CHANGE_LANG: "CHANGE_LANG",
-    LOGIN: "LOGIN"
+    USER_LOGIN: "LOGIN",
+    USER_LOGOUT: "LOGOUT"
 };

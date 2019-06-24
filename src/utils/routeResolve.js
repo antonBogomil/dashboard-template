@@ -1,2 +1,2 @@
 import React from "react";
-import {MESSAGE, PATH_LIST} from "../constants";
+import {MESSAGE, PATH_LIST} from "../admin/constants";

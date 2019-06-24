@@ -1,0 +1,48 @@
+@import "vars";
+
+.menu {
+  font-size: 14px;
+
+  .menu-item {
+    color: rgba(255, 255, 255, 0.50);
+  }
+
+  a {
+    display: inline-block;
+    padding: 15px 15px 15px 20px;
+    transition: all .3s ease;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.50);
+    text-decoration: none;
+  }
+  .menu-item {
+
+    a:hover {
+      background-color: $color-secondary-dark-extra;
+      color: #fff;
+    }
+
+    a.active {
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+
+  .menu-item.open {
+    background-color: $color-secondary-darker;
+  }
+}
+
+.menu-level-0 a {
+  padding-left: 20px;
+}
+
+.menu-level-1 a {
+  padding-left: 50px;
+}
+
+.menu-level-2 a {
+  padding-left: 60px;
+}

@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import locale from "./locale";
-import user from "./user";
+import langReducer from "./lang.reducer";
+import userReducer from "./user.reducer";
 
 export const rootReducer = combineReducers({
-    locale,
-    user
+    lang:langReducer,
+    user: userReducer
 });
