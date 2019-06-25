@@ -6,7 +6,7 @@ import Input from "./Input";
 import {useForm} from "../../hook";
 import Button from "../Button";
 
-const Form = ({settings, values}) => {
+const X_Form = ({settings, values}) => {
     const {fields} = settings;
     const onChange = (name, e) => {
         // console.log(name,e.target.value);
@@ -21,9 +21,9 @@ const Form = ({settings, values}) => {
     );
 };
 
-Form.propTypes = {};
+X_Form.propTypes = {};
 
-export default Form;
+export default X_Form;
 
 export const FormWithHook = ({settings,onSubmit}, ) => {
     const {values, handleChange, handleSubmit} = useForm(submitCallback);

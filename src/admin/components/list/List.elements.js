@@ -3,7 +3,7 @@ import {ICONS, LIST_COLUMN_TYPE} from "../../constants";
 import getIcons from "../../../utils/getIcons";
 import dateFormat from "../../../utils/dateFormat";
 import ImageLoad from "../ImageLoad";
-import Checkbox from "../form/Checkbox";
+import FormCheckbox from "../inputs/Checkbox";
 import Button from "../Button";
 import {ADMIN_PATH} from "../../settings/routes";
 
@@ -17,8 +17,8 @@ const ListTitles = (props) => {
         <thead className='list-head'>
         <tr className='list-row'>
             <td className='list-cell list-cell_select'>
-                <Checkbox checked={checked}
-                          onChange={() => {
+                <FormCheckbox checked={checked}
+                              onChange={() => {
                               onSelect('ALL')
                           }}
                 />
@@ -43,8 +43,8 @@ const ListBody = ({items, fields, editPage, rows, onSelect, selected = []}) => {
                 return (
                     <tr className='list-row' key={i}>
                         <td className='list-cell list-cell_select'>
-                            <Checkbox checked={selected.indexOf(item.id) !== -1}
-                                      onChange={() => {
+                            <FormCheckbox checked={selected.indexOf(item.id) !== -1}
+                                          onChange={() => {
                                           onSelect(item.id)
                                       }}
                             />

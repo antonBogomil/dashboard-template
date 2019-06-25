@@ -1,8 +1,7 @@
 import React from 'react';
 import WrappedPage from "../WrappedPage";
-import {FormWithHook} from "../form/Form";
 import {FORM_FIELD_TYPES} from "../../constants/const";
-import {userAdd} from '../../settings/forms';
+import UserAddForm from "../forms/UserAddForm";
 const settings = {
     title: "Add User",
 };
@@ -11,13 +10,9 @@ const settings = {
 
 
 const UserAddPage = () => {
-
-
-
-
     return (
         <>
-            <FormWithHook settings={userAdd}/>
+            <UserAddForm/>
         </>
     );
 };

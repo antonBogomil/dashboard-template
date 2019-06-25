@@ -4,7 +4,7 @@ import WrappedPage from "../WrappedPage";
 import CardBlock from "../CardBlock";
 import {FORM_FIELD_TYPES} from "../../constants/const";
 import Form from "../form/Form";
-import Checkbox from "../form/Checkbox";
+import FormCheckbox from "../form/Form.Checkbox";
 
 const UFormsPage = props => {
 
@@ -52,7 +52,7 @@ const UFormsPage = props => {
                 <CardBlock>
                     <CardBlock.Title>Radio Types</CardBlock.Title>
                     <CardBlock.Body>
-                        <Checkbox checked={checked} onChange={checkBoxChange}/>
+                        <FormCheckbox checked={checked} onChange={checkBoxChange}/>
                     </CardBlock.Body>
                 </CardBlock>
             </div>

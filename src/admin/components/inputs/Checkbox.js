@@ -1,7 +1,7 @@
 import React from 'react';
 import getIcons from "../../../utils/getIcons";
 import {ICONS} from "../../constants";
-
+import '../../styles/checkbox.scss';
 const Checkbox = ({checked, color, disabled, onChange, value, labelText}) => {
     return (
         <label className='checkbox'>

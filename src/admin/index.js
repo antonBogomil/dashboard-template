@@ -1,31 +1,18 @@
 import React from 'react';
-import Input from "./components/form/Input";
+import Input from "./components/inputs/Input";
 import getIcons from "../utils/getIcons";
 import {ICONS} from "./constants";
-import langs from "./settings/langs";
 import logo from "./assets/logo_200x200.png";
 import menu from "./settings/menu";
 import AdminRouting from "./components/Routing";
-import Select from "./components/form/Select";
 import Menu from "./components/Menu";
-import {useDispatch, useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
-import {changeLang, userActions} from "../store/actions";
+import {userActions} from "../store/actions";
 import Icon from "./components/Icon";
 import './styles/app.scss'
+import LanguagePanel from "./components/LanguagePanel";
 const Admin = () => {
-    const lang = useSelector((state) => state.lang);
-    const dispatch = useDispatch();
-    const {t, i18n} = useTranslation();
-
-    function changeLanguage(id) {
-        dispatch(changeLang(id));
-        const langCode = langs.find((l) => {
-            return l.id === id
-        }).code;
-        i18n.changeLanguage(langCode);
-    }
-
+    const {t,i18n} = useTranslation();
     return (
         <>
             <header className='header'>
@@ -39,8 +26,7 @@ const Admin = () => {
                 </div>
                 <div className='header-block header-block-user'>
                     <div className='lang-panel'>
-                        <Icon name={ICONS.LANG}/>
-                        <Select options={langs} onChange={changeLanguage} selectedId={lang.id}/>
+                        <LanguagePanel i18n={i18n}/>
                     </div>
                 </div>
             </header>

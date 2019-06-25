@@ -1,0 +1,30 @@
+@import "vars";
+.checkbox {
+  display: inline-block;
+  cursor: pointer;
+  .checkbox-icon {
+    background-color: $color-secondary-light;
+    //font-size: 21px;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: .1s ease;
+    color: #fff;
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked + .checkbox-icon {
+    background-color: $color-primary;
+
+  }
+
+  &.cb-primary {
+  }
+}

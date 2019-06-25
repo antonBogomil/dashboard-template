@@ -1,0 +1,71 @@
+@import "vars";
+
+.field-text {
+  position: relative;
+  border-radius: 4px;
+  //box-shadow: 0 0 0 1px rgba(0, 0, 0, .5);
+  width: 280px;
+  font-size: 12px;
+  fieldset {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 0 0 10px;
+    position: absolute;
+    transition: padding-left 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, border-color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, border-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    pointer-events: none;
+    legend {
+      display: none;
+    }
+  }
+  &.focused,&.not-empty {
+    fieldset {
+      legend {
+        display: block;
+      }
+    }
+    label {
+      top: -7px;
+    }
+  }
+
+  &.primary.focused {
+    color: $color-primary;
+    fieldset{
+      border-color: $color-primary;
+    }
+  }
+
+  input {
+    padding: 13px 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    width: 100%;
+    display: block;
+    color: inherit;
+    background-color: transparent;
+  }
+  label {
+    left: 12px;
+    top: 12px;
+    position: absolute;
+    font-size: 14px;
+    transition: .3s ease;
+    color: inherit;
+  }
+
+  .show-password {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+}

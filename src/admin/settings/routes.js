@@ -3,7 +3,6 @@ import React, {lazy} from "react";
 const HomePage = lazy(() => import('../components/pages/HomePage'));
 const UsersPage = lazy(() => import('../components/pages/UsersPage'));
 const Error404Page = lazy(() => import('../components/pages/Error404_Page'));
-const UFormsPage = lazy(() => import('../components/pages/UFormsPage'));
 const UButtonsPage = lazy(() => import('../components/pages/UButtonsPage'));
 const UserEditPage = lazy(() => import('../components/pages/UserEditPage'));
 const UserAddPage = lazy(() => import('../components/pages/UserAddPage'));
@@ -36,11 +35,6 @@ export default [
         path: '/ui/buttons',
         exact: true,
         action: () => <UButtonsPage/>
-    },
-    {
-        path: '/ui/forms',
-        exact: true,
-        action: () => <UFormsPage/>
     },
     {
         path: '',
