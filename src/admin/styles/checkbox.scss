@@ -1,19 +1,52 @@
 @import "vars";
+
 .checkbox {
   display: inline-block;
   cursor: pointer;
+  padding: 10px 0 10px;
+
   .checkbox-icon {
     background-color: $color-secondary-light;
+    position: relative;
     //font-size: 21px;
+    vertical-align: middle;
     display: inline-block;
     width: 22px;
     height: 22px;
     text-align: center;
-    font-size: 21px;
+    //font-size: 22px;
     font-weight: 700;
     border-radius: 5px;
     transition: .1s ease;
     color: #fff;
+
+    .icon {
+      margin: 0;
+    }
+
+    &:after {
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      content: '';
+      display: inline-block;
+      border-radius: 50%;
+      background-color: inherit;
+      position: absolute;
+      top: calc(50% - 20px);
+      left: 0;
+      transition: right .2s cubic-bezier(.4, 0, .2, 1), opacity .2s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    &:hover {
+      &:after {
+        top: calc(50% - 20px);
+        width: 40px;
+        height: 40px;
+        left: -10px;
+        opacity: .2;
+      }
+    }
   }
 
   input {
@@ -23,6 +56,11 @@
   input:checked + .checkbox-icon {
     background-color: $color-primary;
 
+  }
+
+  .label-text {
+    margin-left: 10px;
+    vertical-align: middle;
   }
 
   &.cb-primary {

@@ -23,7 +23,9 @@ export const ICONS = {
     FIRST_PAGE: "FIRST_PAGE",
     LEFT_PAGE: "L_PAGE",
     RIGHT_PAGE: "R_PAGE",
-    EXIT: "EXIT"
+    EXIT: "EXIT",
+    VISIBILITY_OFF: "VISIBILITY_OFF",
+    VISIBILITY: "VISIBILITY"
 };
 export const LIST_COLUMN_TYPE = {
     STRING: 'STRING',

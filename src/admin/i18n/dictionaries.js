@@ -25,8 +25,10 @@ const en = {
         PAGE_TITLE_FORM: "Forms",
         PAGE_TITLE_DOC: "Read documentation",
         INFO_SELECTED: "Selected : ",
+        LOGOUT: "Log out",
 
-        LOGOUT: "Log out"
+        VALID_PASSWORD_DIFF: "Password does not match!",
+        VALID_LENGTH: "Less or bigger then required length!"
     }
 };
 const ru = {

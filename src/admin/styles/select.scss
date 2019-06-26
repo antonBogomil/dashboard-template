@@ -29,7 +29,9 @@
   width: auto;
   position: relative;
   display: inline-block;
+  vertical-align: middle;
   .select-title{
+    color: $color-secondary-dark;
     width: auto;
     display: inline-block;
     cursor: pointer;

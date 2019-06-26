@@ -32,6 +32,8 @@
     }
     label {
       top: -7px;
+      left: 18px;
+      font-size: 12px;
     }
   }
 
@@ -61,11 +63,21 @@
     transition: .3s ease;
     color: inherit;
   }
-
   .show-password {
     position: absolute;
     right: 10px;
     top: 10px;
     cursor: pointer;
   }
+  &.valid-error{
+    color: $color-danger!important;
+    fieldset{
+      border-color: $color-danger!important;
+    }
+  }
+
+}
+.validation-message{
+  font-size: 12px;
+  color: $color-danger;
 }

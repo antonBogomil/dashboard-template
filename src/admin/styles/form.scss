@@ -1,8 +1,10 @@
 @import "vars";
+
 .form-field {
   .input-container {
     display: flex;
     align-items: center;
+
     .form-group-icon {
       color: inherit;
       padding: 6px;
@@ -12,7 +14,8 @@
         vertical-align: middle;
       }
     }
-    input ,textarea{
+
+    input, textarea {
       outline: none;
       display: block;
       width: 100%;
@@ -25,28 +28,34 @@
       background-clip: padding-box;
       box-shadow: none;
       resize: none;
+
       &::-webkit-input-placeholder {
         color: $color-secondary-dark;
         font-style: italic;
         opacity: .8;
       }
-      &:disabled{
+
+      &:disabled {
         background-color: $color-secondary-light;
-        border: none!important;
+        border: none !important;
         opacity: .6;
-        &::-webkit-input-placeholder{
+
+        &::-webkit-input-placeholder {
           color: $color-secondary-dark;
         }
       }
+
       &.outlined {
         border-bottom: 1px solid $color-secondary-light;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
         &:focus {
           border-bottom-color: $color-primary;
         }
       }
     }
   }
+
   label {
     color: inherit;
     font-weight: 700;
@@ -55,18 +64,28 @@
   }
 
 
-  &.valid-error{
-    color: $color-danger;
-    .input-container{
-      input{
-        border-bottom-color: $color-danger!important;
-      }
-    }
-    .field-error{
-      font-size: 10px;
-    }
-  }
-
 }
 
 
+.form-element {
+  margin-bottom: 16px;
+}
+
+.valid-error {
+  color: $color-danger;
+  font-size: 12px;
+  .input-container {
+    input {
+      border-bottom-color: $color-danger !important;
+    }
+  }
+}
+
+.field-group{
+  .field-group-label,.field-label{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+}

@@ -25,7 +25,9 @@ import {
     MdChevronRight,
     MdEdit,
     MdLanguage,
-    MdExitToApp
+    MdExitToApp,
+    MdVisibility,
+    MdVisibilityOff
 } from 'react-icons/md';
 
 export default {
@@ -41,6 +43,9 @@ export default {
     [ICONS.LAST_PAGE]: MdLastPage,
     [ICONS.FIRST_PAGE]: MdFirstPage,
     [ICONS.LEFT_PAGE]: MdChevronLeft,
+    [ICONS.EXIT]: MdExitToApp,
+    [ICONS.VISIBILITY]: MdVisibility,
+    [ICONS.VISIBILITY_OFF]: MdVisibilityOff,
     [ICONS.RIGHT_PAGE]: MdChevronRight,
     [MENU_ICONS.HOME]: MdHome,
     [MENU_ICONS.LIST]: MdList,
@@ -50,5 +55,4 @@ export default {
     [MENU_ICONS.DOC]: MdLibraryBooks,
     [MENU_ICONS.FORMS]: MdDvr,
     [MENU_ICONS.ELEMENTS]: MdDesktopMac,
-    [ICONS.EXIT]: MdExitToApp
 }

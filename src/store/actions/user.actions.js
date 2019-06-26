@@ -16,10 +16,12 @@ function login(username, password) {
     userService.login(username,password);
     window.location = '/admin';
 }
+function auth() {
 
+}
 function logout() {
     store.dispatch({
-        type: ACTION_TYPES.USER_LOGIN,
+        type: ACTION_TYPES.USER_LOGOUT,
         payload: null
     });
     userService.logout();

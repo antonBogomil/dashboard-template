@@ -19,8 +19,9 @@ const LanguagePanel = (props) => {
 
     return (
         <div>
-            <Icon name={ICONS.LANG}/>
-            <Select options={transformForSelect(langs, 'id', 'title')} value={lang} onChange={handleChange}/>
+            <Select options={transformForSelect(langs, 'id', 'title')} value={lang} selectedValue={{value: lang.id,label: lang.title}} onChange={handleChange}>
+                <Icon name={ICONS.LANG}/>
+            </Select>
         </div>
     );
 };

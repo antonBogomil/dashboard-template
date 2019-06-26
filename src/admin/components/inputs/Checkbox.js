@@ -1,15 +1,17 @@
 import React from 'react';
-import getIcons from "../../../utils/getIcons";
 import {ICONS} from "../../constants";
 import '../../styles/checkbox.scss';
-const Checkbox = ({checked, color, disabled, onChange, value, labelText}) => {
+import Icon from "../Icon";
+const Checkbox = ({checked, color, disabled, onChange, value, label}) => {
     return (
         <label className='checkbox'>
             <input onChange={onChange} value={value} checked={checked}  type='checkbox'/>
-            <span className='checkbox-icon'>
-                {checked && getIcons(ICONS.CHECK)}
+            <div className='checkbox-icon'>
+                {checked && <Icon name={ICONS.CHECK}/>}
+            </div>
+            <span className='label-text'>
+                {label}
             </span>
-            {labelText && labelText}
         </label>
     );
 };

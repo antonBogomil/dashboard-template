@@ -16,7 +16,9 @@ function login(username, password) {
         username, password
     }
 }
-
+function auth() {
+    return _httpRequest.get('/auth');
+}
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
@@ -26,6 +28,7 @@ function getList(url, params) {
     console.log(_httpRequest);
     return _httpRequest.get(url, params)
 }
+
 
 function create(data) {
     return _httpRequest.post('/users/add', data);

@@ -1,12 +1,26 @@
 @import "vars";
 
 .field-switch {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  z-index: 100;
+
   input {
     width: 0;
     height: auto;
     overflow: hidden;
     position: absolute;
     display: inline-block;
+  }
+
+  label {
+    cursor: pointer;
+    span {
+      margin-bottom: 12px;
+      font-weight: 700;
+      display: inline-block;
+    }
   }
 
   .switch-track {
@@ -57,7 +71,6 @@
   &.off {
     .switch-thumb {
       right: 18px;
-
     }
   }
 
@@ -76,7 +89,7 @@
   &.primary {
     &.on {
       .switch-thumb {
-        background-color: red;
+        background-color: $color-primary;
       }
     }
 

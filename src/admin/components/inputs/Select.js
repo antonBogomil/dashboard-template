@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/select.scss';
 
-const Select = ({name, selectedValue={},value, onChange, title, options = [], multiple = false}) => {
+const Select = ({name, selectedValue={},value, onChange, title, options = [], multiple = false,children}) => {
     const MAX_ROWS = 6;
     const [selected, setSelected] = useState(selectedValue);
     const [open, setOpen] = useState(false);
@@ -33,6 +33,8 @@ const Select = ({name, selectedValue={},value, onChange, title, options = [], mu
                 <div className='select-title' onClick={() => {
                     setOpen(true)
                 }}>
+                    {children}
+
                     {selected.label || "Select ..."}
                 </div>
                 <div
@@ -43,7 +45,7 @@ const Select = ({name, selectedValue={},value, onChange, title, options = [], mu
                                  onClick={() => {
                                      onSelect(item)
                                  }}
-                                 className={`select-option ${item.value===selected.value ? 'selected-option': ''}`}
+                                 className={`select-option ${+item.value === +selected.value ? 'selected-option': ''}`}
                             >
                                 {item.label}
                             </div>
@@ -60,7 +62,7 @@ Select.propTypes = {
         value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         label: PropTypes.string.isRequired,
     })).isRequired,
-    selectedValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    selectedValue: PropTypes.object,
     onChange: PropTypes.func.isRequired,
 };
 export default Select

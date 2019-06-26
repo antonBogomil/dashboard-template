@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {validate} from "../settings/validation";
 
 // export const useFetch = (url, options) => {
 //     const [data, setData] = useState(null);
@@ -20,28 +21,36 @@ import {useState, useEffect} from 'react';
 // };
 
 
-export const useForm = (callback, validate) => {
-    const [values, setValues] = useState({});
-    // const [errors, setErrors] = useState({});
-    // const [isSubmitting, setIsSubmitting] = useState(false);
-    // useEffect(() => {
-    //     if (Object.keys(errors).length === 0 && isSubmitting) {
-    //         callback();
-    //     }
-    // }, [errors]);
+export const useForm = (initState,callback, validationRules) => {
+    const [values, setValues] = useState(initState);
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    useEffect(() => {
+        if (Object.keys(errors).length === 0 && isSubmitting) {
+            callback(values);
+            console.log('Form has been submitted successfully!');
+        }
+    }, [errors]);
     const handleSubmit = (event) => {
         if (event) event.preventDefault();
-        callback();
+        setErrors(validate(values, validationRules));
+        setIsSubmitting(true);
     };
-    const handleChange = (event) => {
-        event.persist();
-        setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+    const handleChange = (name, value) => {
+        console.log(name,value);
+        setErrors((prev) => {
+            return {
+                ...prev,
+                [name]: null
+            }
+        });
+        setValues(values => ({...values, [name]: value}));
     };
     return {
         handleChange,
         handleSubmit,
         values,
-        // errors,
+        errors,
     }
 
 };

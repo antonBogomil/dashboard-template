@@ -99,15 +99,14 @@ ul {
   padding: 0;
 }
 
-a {
-
+label, .select, a {
+  user-select: none;
 }
 
 .flex-row {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
-
   .flex-col {
     box-sizing: border-box;
     padding-right: 15px;
