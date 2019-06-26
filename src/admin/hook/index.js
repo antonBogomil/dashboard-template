@@ -36,6 +36,10 @@ export const useForm = (initState,callback, validationRules) => {
         setErrors(validate(values, validationRules));
         setIsSubmitting(true);
     };
+    const handleReset = (event)=>{
+        if (event) event.preventDefault();
+        setValues(initState);
+    };
     const handleChange = (name, value) => {
         console.log(name,value);
         setErrors((prev) => {
@@ -51,6 +55,7 @@ export const useForm = (initState,callback, validationRules) => {
         handleSubmit,
         values,
         errors,
+        handleReset
     }
 
 };

@@ -21,7 +21,7 @@ const validationRules = {
         max: 100,
     },
     roles:{
-        required: true
+        required: true,
     }
 };
 
@@ -42,15 +42,15 @@ const checkBoxOptions = [
 
 
 const UserAddForm = () => {
-    const {values, handleChange, handleSubmit, errors} = useForm({
+    const {values, handleChange, handleSubmit,handleReset, errors} = useForm({
         isActive: true,
-        roles: [],
+        roles: ["ROLE_ADMIN"],
     }, callback, validationRules);
 
     function callback(values) {
         // console.log(values);
     }
-    // console.log(values);
+    console.log(values);
 
     return (
         <form autoComplete='off' onSubmit={handleSubmit}>
@@ -84,10 +84,10 @@ const UserAddForm = () => {
                         <CheckBoxGroup options={checkBoxOptions}
                                        name={'roles'}
                                        onChange={handleChange}
+                                       value={values['roles']}
                                        error={errors['roles']}
                                        label="Choose user roles" isRequired={true}/>
                     </div>
-
                     <div className='form-element'>
                         <Switch onChange={handleChange} name='isActive' defaultValue={true} value={values['isActive']}
                                 label={'User active'}/>
@@ -98,7 +98,7 @@ const UserAddForm = () => {
 
             <div className='btn-container'>
                 <Button type='submit'>Save</Button>
-                <Button type='reset' variant='secondary'>Reset</Button>
+                <Button type='reset' variant='secondary' onClick={handleReset}>Reset</Button>
             </div>
         </form>
     );
