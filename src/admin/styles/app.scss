@@ -1,7 +1,7 @@
 @import "vars";
 @import "default";
 @import "form";
-
+@import "animation";
 .app {
 
 }
@@ -39,10 +39,18 @@
   .header-block-user {
 
   }
-
   .lang-panel {
     display: flex;
     align-items: center;
+    .icon{
+      font-size: 20px;
+    }
+    .select{
+      min-width: auto;
+      .select-options{
+        right: 0;
+      }
+    }
   }
 }
 
@@ -78,7 +86,7 @@
   padding-left: 240px;
 
   .container {
-    padding: 95px 20px 75px 20px;
+    padding: 95px 50px 75px;
     min-height: 100vh;
     //display: grid;
     grid-template-rows: minmax(100px, max-content) auto;

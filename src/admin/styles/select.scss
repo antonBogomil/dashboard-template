@@ -31,7 +31,7 @@
   display: inline-block;
   vertical-align: middle;
   .select-title{
-    color: $color-secondary-dark;
+    //color: $color-secondary-dark;
     width: auto;
     display: inline-block;
     cursor: pointer;
@@ -41,8 +41,9 @@
     border-radius: 4px;
     position: absolute;
     top: 0;
-    width: auto;
     background-color: #fff;
+    color: $color-secondary-dark-extra;
+
     animation-duration: 1s;
     &.scrolled{
       overflow-y: scroll;

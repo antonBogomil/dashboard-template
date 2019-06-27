@@ -34,8 +34,7 @@ const Select = ({name, selectedValue={},value, onChange, title, options = [], mu
                     setOpen(true)
                 }}>
                     {children}
-
-                    {selected.label || "Select ..."}
+                    {/*{selected.label || "Select ..."}*/}
                 </div>
                 <div
                     className={`select-options ${open ? 'open' : 'hide'} ${options.length > MAX_ROWS ? 'scrolled' : ''}`}>

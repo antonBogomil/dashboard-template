@@ -66,6 +66,17 @@
 
 }
 
+.form-wrapper{
+  max-width: 600px;
+  //margin: auto;
+}
+form{
+  //display: block;
+  //background-color: #fff;
+  .btn-container{
+    text-align: right;
+  }
+}
 
 .form-element {
   margin-bottom: 16px;
@@ -88,4 +99,10 @@
     margin-bottom: 12px;
     display: inline-block;
   }
+}
+.label-text {
+  margin-left: 10px;
+  vertical-align: middle;
+  text-transform: capitalize;
+
 }

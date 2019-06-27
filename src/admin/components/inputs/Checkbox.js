@@ -8,7 +8,7 @@ const Checkbox = ({checked, color, disabled, onChange, value, label}) => {
         <label className={className}>
             <input onChange={onChange} value={value} checked={checked} disabled={disabled}  type='checkbox'/>
             <div className='checkbox-icon'>
-                {checked && <Icon name={ICONS.CHECK}/>}
+                {checked && <Icon name={ICONS.CHECK} animate={true} variant={'primary'}/>}
             </div>
             <span className='label-text'>
                 {label}

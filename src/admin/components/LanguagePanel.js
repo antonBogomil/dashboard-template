@@ -7,6 +7,7 @@ import Select from "./inputs/Select";
 import {useDispatch, useSelector} from "react-redux";
 import {changeLang} from "../../store/actions";
 import {useTranslation} from "react-i18next";
+import Button from "./Button";
 
 const LanguagePanel = (props) => {
     const lang = useSelector((state) => state.lang);
@@ -18,7 +19,7 @@ const LanguagePanel = (props) => {
     }
 
     return (
-        <div>
+        <div className='lang-panel'>
             <Select options={transformForSelect(langs, 'id', 'title')} value={lang} selectedValue={{value: lang.id,label: lang.title}} onChange={handleChange}>
                 <Icon name={ICONS.LANG}/>
             </Select>

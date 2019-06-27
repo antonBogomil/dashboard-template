@@ -1,0 +1,35 @@
+//@import "vars";
+//.ripple-round {
+//  position: relative;
+//  &:after {
+//    width: 20px;
+//    height: 20px;
+//    opacity: 0;
+//    content: '';
+//    display: inline-block;
+//    border-radius: 50%;
+//    background-color: inherit;
+//    position: absolute;
+//    top: calc(50% - 20px);
+//    left: 0;
+//    z-index: 2;
+//    transition: right .2s cubic-bezier(.4, 0, .2, 1), opacity .2s cubic-bezier(.4, 0, .2, 1);
+//  }
+//
+//  &:hover {
+//    &:after {
+//      top: calc(50% - 20px);
+//      width: 40px;
+//      height: 40px;
+//      left: -10px;
+//      opacity: .2;
+//    }
+//  }
+//
+//  &.primary:after {
+//    background-color: $color-primary;
+//  }
+//  &.secondary:after {
+//    background-color: $color-secondary-light;
+//  }
+//}

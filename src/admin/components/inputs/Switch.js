@@ -2,12 +2,10 @@ import React, {useState, useRef, useEffect} from 'react';
 // import PropTypes from 'prop-types';
 import '../../styles/switch.scss';
 const Switch = ({defaultValue, value, name, onChange, variant='primary',label}) => {
-    let on = value;
     return (
-        <div className={`field-switch ${on ? 'on' : 'off'} ${variant}`}>
+        <div className={`field-switch ${value ? 'on' : 'off'} ${variant}`}>
             <label>
                 <span className='field-label'>{label}</span>
-
                 <input type={'checkbox'}
                        name={name}
                     // defaultChecked={defaultValue}

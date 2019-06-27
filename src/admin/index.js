@@ -25,9 +25,7 @@ const Admin = () => {
                     </form>
                 </div>
                 <div className='header-block header-block-user'>
-                    <div className='lang-panel'>
-                        <LanguagePanel i18n={i18n}/>
-                    </div>
+                    <LanguagePanel/>
                 </div>
             </header>
             <aside className='sidebar'>

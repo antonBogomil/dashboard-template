@@ -1,4 +1,5 @@
 import {MENU_ICONS} from "../constants";
+import {ICONS} from "../constants/const";
 export default [
     {
         title: 'MENU_HOME',
@@ -13,12 +14,12 @@ export default [
             {
                 title: 'MENU_USERS_LIST',
                 url: '/list',
-                icon: ''
+                icon: MENU_ICONS.LIST
             },
             {
                 title: 'MENU_USERS_ADD',
                 url: '/add',
-                icon: '',
+                icon: ICONS.ADD,
             },
         ],
     },

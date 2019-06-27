@@ -27,8 +27,10 @@ import {
     MdLanguage,
     MdExitToApp,
     MdVisibility,
-    MdVisibilityOff
+    MdVisibilityOff,
+    MdAdd, MdRadioButtonChecked, MdRadioButtonUnchecked
 } from 'react-icons/md';
+import {IoMdRadioButtonOff, IoMdRadioButtonOn} from "react-icons/io";
 
 export default {
     [ICONS.ARROW_UP]: MdArrowDropUp,
@@ -37,8 +39,11 @@ export default {
     [ICONS.EDIT]: MdEdit,
     [ICONS.CHECK]: MdCheck,
     [ICONS.LANG]: MdLanguage,
+    [ICONS.ADD]: MdAdd,
     [ICONS.CHECK_FALSE]: MdIndeterminateCheckBox,
     [ICONS.LEFT]: MdKeyboardArrowLeft,
+    [ICONS.RADIO_TRUE]: IoMdRadioButtonOn,
+    [ICONS.RADIO_FALSE]: IoMdRadioButtonOff,
     [ICONS.CHECK_OUTLINE_FALSE]: MdCheckBoxOutlineBlank,
     [ICONS.LAST_PAGE]: MdLastPage,
     [ICONS.FIRST_PAGE]: MdFirstPage,

@@ -10,12 +10,7 @@ import Admin from './admin'
 import initTranslation from './admin/i18n'
 import PrivateRoute from "./admin/components/PrivateRoute";
 import Login from "./admin/components/Login";
-import './admin/styles/default.scss'
-
-
 initTranslation(store.getState().lang.code);
-
-
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
